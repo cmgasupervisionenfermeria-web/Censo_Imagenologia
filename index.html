@@ -744,40 +744,45 @@ function renderConcentrado(){
   const diasConAct=[...new Set(est.map(r=>r.fecha).filter(Boolean))].length||1;
   const total=est.length;
 
-  // Por tipo
+  // Por tipo (los 8 actuales)
   const porTipo={};
   Object.keys(TIPOS_ESTUDIO).forEach(t=>{ porTipo[t]=est.filter(r=>r.tipo===t).length; });
-
-  // Tiempos
-  const tEspera=est.map(r=>r.minEsperaInicio).filter(v=>v!==null&&v!==undefined&&v>=0);
-  const tEjecucion=est.map(r=>r.minEjecucion).filter(v=>v!==null&&v!==undefined&&v>0);
-  const tReporte=est.map(r=>r.minEntregaReporte).filter(v=>v!==null&&v!==undefined&&v>0);
-  const pEspera=tEspera.length?Math.round(tEspera.reduce((a,b)=>a+b,0)/tEspera.length):null;
-  const pEjecucion=tEjecucion.length?Math.round(tEjecucion.reduce((a,b)=>a+b,0)/tEjecucion.length):null;
-  const pReporte=tReporte.length?Math.round(tReporte.reduce((a,b)=>a+b,0)/tReporte.length):null;
 
   // Prioridad
   const urgentes=est.filter(r=>r.prioridad==='Urgente').length;
   const programados=est.filter(r=>r.prioridad==='Programado').length;
   const sinCita=est.filter(r=>r.prioridad==='Sin cita').length;
 
-  // Estado (por si hay datos viejos)
-  const estSol=est.filter(r=>r.estado==='Solicitado').length;
-  const estProc=est.filter(r=>r.estado==='En proceso').length;
-  const estReal=est.filter(r=>r.estado==='Realizado').length;
-  const estRep=est.filter(r=>r.estado==='Reportado').length;
-  const pctReportados=total?Math.round(estRep/total*1000)/10:0;
-  const pctRealizados=total?Math.round((estReal+estRep)/total*1000)/10:0;
+  // Tiempo de ejecución (único tiempo disponible: inicio → fin)
+  const tEjecucion=est.map(r=>Number(r.minEjecucion)).filter(v=>!isNaN(v)&&v>0);
+  const pEjecucion=tEjecucion.length?Math.round(tEjecucion.reduce((a,b)=>a+b,0)/tEjecucion.length):null;
+  const maxEjecucion=tEjecucion.length?Math.max(...tEjecucion):null;
+  const minEjecucion=tEjecucion.length?Math.min(...tEjecucion):null;
 
-  // Por servicio (top 5)
+  // Tiempo por tipo
+  const tiemposPorTipo={};
+  Object.keys(TIPOS_ESTUDIO).forEach(tipo=>{
+    const vals=est.filter(r=>r.tipo===tipo).map(r=>Number(r.minEjecucion)).filter(v=>!isNaN(v)&&v>0);
+    tiemposPorTipo[tipo]=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length):null;
+  });
+
+  // Por servicio
   const porServicio={};
   est.forEach(r=>{ if(r.servicio) porServicio[r.servicio]=(porServicio[r.servicio]||0)+1; });
-  const topServicios=Object.entries(porServicio).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const topServicios=Object.entries(porServicio).sort((a,b)=>b[1]-a[1]);
 
   // Por técnico
   const porTecnico={};
   est.forEach(r=>{ if(r.tecnico) porTecnico[r.tecnico]=(porTecnico[r.tecnico]||0)+1; });
-  const topTecnicos=Object.entries(porTecnico).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const topTecnicos=Object.entries(porTecnico).sort((a,b)=>b[1]-a[1]);
+
+  // Por radiólogo
+  const porRadiologo={};
+  est.forEach(r=>{ if(r.radiologo) porRadiologo[r.radiologo]=(porRadiologo[r.radiologo]||0)+1; });
+  const topRadiologos=Object.entries(porRadiologo).sort((a,b)=>b[1]-a[1]);
+
+  // Estudios con medio de contraste
+  const conContraste=est.filter(r=>r.contraste&&r.contraste.indexOf('Sin')===-1&&r.contraste!=='').length;
 
   function ic(color,titulo,formula,valor,desc,barPct){
     return '<div class="ind-card">'+
@@ -789,103 +794,103 @@ function renderConcentrado(){
       '</div>';
   }
 
-  const tipoColors={'Rayos X':'#1C2331','Ultrasonido':'#0E7490','TAC':'#9A3412','Mastografía':'#6B21A8','Biopsias':'#991B1B','Arco en C':'#065F46','Rx Portátil':'#166534','Rx Especial':'#92400E'};
+  function barraPersonal(lista,color){
+    if(!lista.length) return '<div style="color:var(--gris4);font-size:12px;margin-top:8px">Sin datos</div>';
+    const max=lista[0][1];
+    return '<div style="margin-top:8px;display:flex;flex-direction:column;gap:7px">'+
+      lista.map(([nombre,n])=>
+        '<div style="display:flex;align-items:center;gap:8px">'+
+        '<div style="font-size:11px;font-weight:500;min-width:160px;color:var(--gris6);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="'+nombre+'">'+nombre+'</div>'+
+        '<div style="flex:1;height:6px;background:var(--gris2);border-radius:99px;overflow:hidden">'+
+        '<div style="height:100%;width:'+(max?Math.round(n/max*100):0)+'%;background:'+color+';border-radius:99px"></div></div>'+
+        '<div style="font-size:12px;font-weight:700;color:'+color+';min-width:28px;text-align:right">'+n+'</div>'+
+        '</div>'
+      ).join('')+
+      '</div>';
+  }
 
   document.getElementById('concentrado-body').innerHTML=
+
+    // Encabezado
     '<div style="font-size:16px;font-weight:600;color:var(--gris7);margin-bottom:14px">'+
-    MESES[mes]+' '+anio+' &nbsp;|&nbsp; <span style="font-size:12px;font-weight:400;color:var(--gris4)">'+diasConAct+' días con actividad</span></div>'+
+    MESES[mes]+' '+anio+'&nbsp;&nbsp;<span style="font-size:12px;font-weight:400;color:var(--gris4)">'+diasConAct+' día'+(diasConAct!==1?'s':'')+' con actividad</span></div>'+
 
-    // KPIs principales
-    '<div class="stats-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:14px">'+
-    '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:#1C2331">'+total+'</div><div class="stat-sub">Prom. diario: '+Math.round(total/diasConAct*10)/10+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">Urgentes</div><div class="stat-val" style="color:var(--rojo)">'+urgentes+'</div><div class="stat-sub">'+(total?Math.round(urgentes/total*100):0)+'% del total</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">Reportados</div><div class="stat-val" style="color:var(--morado)">'+estRep+'</div><div class="stat-sub">'+pctReportados+'% del total</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">% Productividad</div><div class="stat-val" style="color:var(--verde)">'+pctRealizados+'%</div><div class="stat-sub">Realizados + Reportados</div></div>'+
+    // ── KPIs generales ──────────────────────────────────────────
+    '<div class="stats-grid" style="grid-template-columns:repeat(5,1fr);margin-bottom:14px">'+
+    '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:#1C2331">'+total+'</div><div class="stat-sub">Promedio diario: '+Math.round(total/diasConAct*10)/10+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">🔴 Urgentes</div><div class="stat-val" style="color:var(--rojo)">'+urgentes+'</div><div class="stat-sub">'+(total?Math.round(urgentes/total*100):0)+'% del total</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">🟢 Programados</div><div class="stat-val" style="color:var(--verde)">'+programados+'</div><div class="stat-sub">'+(total?Math.round(programados/total*100):0)+'% del total</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">🔵 Sin cita</div><div class="stat-val" style="color:#0369A1">'+sinCita+'</div><div class="stat-sub">'+(total?Math.round(sinCita/total*100):0)+'% del total</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">💉 Con contraste</div><div class="stat-val" style="color:var(--amarillo)">'+conContraste+'</div><div class="stat-sub">'+(total?Math.round(conContraste/total*100):0)+'% del total</div></div>'+
     '</div>'+
 
-    // Tiempos
-    '<div class="ind-grid-3" style="margin-bottom:12px">'+
-    '<div class="group-title">Tiempos de Atención (promedios del mes)</div>'+
-    ic('#1C2331','Espera para inicio','solicitud → inicio estudio',fmtMin(pEspera),'Promedio sobre '+tEspera.length+' registros. Meta urgentes: <30 min',pEspera!==null?Math.min(pEspera/60*100,100):0)+
-    ic('#0E7490','Duración del estudio','inicio → fin del estudio',fmtMin(pEjecucion),'Promedio sobre '+tEjecucion.length+' registros',pEjecucion!==null?Math.min(pEjecucion/60*100,100):0)+
-    ic('var(--morado)','Tiempo al reporte','fin estudio → entrega reporte',fmtMin(pReporte),'Promedio sobre '+tReporte.length+' registros',pReporte!==null?Math.min(pReporte/120*100,100):0)+
-    '</div>'+
-
-    // Por tipo
-    '<div class="ind-grid-3" style="margin-bottom:12px">'+
-    '<div class="group-title">Estudios por Modalidad</div>'+
-    '<div class="ind-card" style="grid-column:1/-1">'+
-    '<div style="display:flex;gap:12px;flex-wrap:wrap">'+
+    // ── Estudios por modalidad ───────────────────────────────────
+    '<div class="card" style="margin-bottom:14px">'+
+    '<div class="card-header"><span class="card-title">🩻 Estudios por modalidad</span></div>'+
+    '<div style="padding:16px">'+
+    '<div style="display:grid;grid-template-columns:repeat(8,1fr);gap:10px">'+
     Object.entries(TIPOS_ESTUDIO).map(([nombre,t])=>{
       const n=porTipo[nombre]||0;
-      return '<div style="flex:1;min-width:100px;text-align:center">'+
-        '<div style="font-size:22px;margin-bottom:4px">'+t.icon+'</div>'+
-        '<div style="font-size:10px;color:'+t.color+';font-weight:700;margin-bottom:2px">'+nombre+'</div>'+
-        '<div style="font-size:24px;font-weight:700;color:'+t.color+'">'+n+'</div>'+
-        '<div style="font-size:9px;color:var(--gris4)">'+(total?Math.round(n/total*100):0)+'%</div>'+
-        '<div style="height:3px;background:var(--gris2);border-radius:99px;margin-top:6px;overflow:hidden">'+
-        '<div style="height:100%;width:'+(total?Math.round(n/total*100):0)+'%;background:'+t.color+';border-radius:99px"></div></div>'+
+      const pct=total?Math.round(n/total*100):0;
+      const tProm=tiemposPorTipo[nombre];
+      return '<div style="text-align:center;padding:10px 4px;border-radius:8px;background:var(--gris0);border:1px solid var(--gris2)">'+
+        '<div style="font-size:20px;margin-bottom:4px">'+t.icon+'</div>'+
+        '<div style="font-size:9px;color:'+t.color+';font-weight:700;margin-bottom:6px;line-height:1.2">'+nombre+'</div>'+
+        '<div style="font-size:26px;font-weight:700;color:'+t.color+';line-height:1">'+n+'</div>'+
+        '<div style="font-size:9px;color:var(--gris4);margin:3px 0">'+pct+'% del total</div>'+
+        '<div style="height:3px;background:var(--gris2);border-radius:99px;margin:6px 0;overflow:hidden">'+
+        '<div style="height:100%;width:'+pct+'%;background:'+t.color+';border-radius:99px"></div></div>'+
+        '<div style="font-size:9px;color:var(--gris4)">Duración prom.<br><strong style="color:'+t.color+'">'+(tProm!==null?fmtMin(tProm):'-')+'</strong></div>'+
         '</div>';
     }).join('')+
-    '</div></div>'+
+    '</div></div></div>'+
+
+    // ── Tiempo de ejecución ──────────────────────────────────────
+    '<div class="ind-grid-3" style="margin-bottom:12px">'+
+    '<div class="group-title">Duración de estudios (inicio → fin)</div>'+
+    ic('#1C2331','Duración promedio','inicio → fin del estudio',fmtMin(pEjecucion),
+      'Calculado sobre '+tEjecucion.length+' estudio'+(tEjecucion.length!==1?'s':''),
+      pEjecucion!==null?Math.min(pEjecucion/60*100,100):0)+
+    ic('#065F46','Duración mínima registrada','estudio más rápido del mes',fmtMin(minEjecucion),
+      'Mejor tiempo individual registrado',
+      minEjecucion!==null?Math.min(minEjecucion/60*100,100):0)+
+    ic('#9A3412','Duración máxima registrada','estudio más largo del mes',fmtMin(maxEjecucion),
+      'Tiempo más largo individual registrado',
+      maxEjecucion!==null?Math.min(maxEjecucion/60*100,100):0)+
     '</div>'+
 
-    // Estado y prioridad
+    // ── Servicios solicitantes ───────────────────────────────────
     '<div class="ind-grid-2" style="margin-bottom:12px">'+
-    '<div class="group-title">Estado y Prioridad</div>'+
+    '<div class="group-title">Demanda por servicio y productividad del personal</div>'+
     '<div class="ind-card">'+
-    '<div class="ind-hdr"><div class="ind-dot" style="background:#1C2331"></div><span class="ind-ttl">Estado de estudios del mes</span></div>'+
-    '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">'+
-    [['Solicitado',estSol,'#1C2331','#ECEEF1'],['En proceso',estProc,'var(--amarillo)','var(--amarillo3)'],['Realizado',estReal,'var(--verde)','var(--verde3)'],['Reportado',estRep,'var(--morado)','var(--morado3)']].map(x=>
-      '<div style="flex:1;min-width:70px;background:'+x[3]+';border-radius:8px;padding:8px;text-align:center">'+
-      '<div style="font-size:9px;color:'+x[2]+';font-weight:700;margin-bottom:2px">'+x[0]+'</div>'+
-      '<div style="font-size:20px;font-weight:700;color:'+x[2]+'">'+x[1]+'</div>'+
-      '<div style="font-size:9px;color:'+x[2]+'">'+(total?Math.round(x[1]/total*100):0)+'%</div>'+
-      '</div>'
-    ).join('')+
-    '</div></div>'+
+    '<div class="ind-hdr"><div class="ind-dot" style="background:#0E7490"></div><span class="ind-ttl">Estudios por servicio solicitante</span></div>'+
+    barraPersonal(topServicios,'#0E7490')+
+    '</div>'+
     '<div class="ind-card">'+
-    '<div class="ind-hdr"><div class="ind-dot" style="background:var(--rojo)"></div><span class="ind-ttl">Prioridad</span></div>'+
-    '<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px">'+
-    [['🔴 Urgentes',urgentes,'var(--rojo)'],['🟢 Programados',programados,'var(--verde)'],['🔵 Sin cita',sinCita,'#0369A1'],['Total',total,'var(--gris6)']].map(x=>
-      '<div style="flex:1;text-align:center">'+
-      '<div style="font-size:10px;color:'+x[2]+';font-weight:700;margin-bottom:2px">'+x[0]+'</div>'+
-      '<div style="font-size:24px;font-weight:700;color:'+x[2]+'">'+x[1]+'</div>'+
-      '</div>'
-    ).join('')+
-    '</div></div>'+
+    '<div class="ind-hdr"><div class="ind-dot" style="background:var(--naranja2)"></div><span class="ind-ttl">Estudios por técnico radiólogo</span></div>'+
+    barraPersonal(topTecnicos,'var(--naranja2)')+
+    '</div>'+
     '</div>'+
 
-    // Servicios solicitantes
+    // ── Por radiólogo ────────────────────────────────────────────
     '<div class="ind-grid-2" style="margin-bottom:12px">'+
-    '<div class="group-title">Demanda por Servicio y Productividad del Personal</div>'+
-    '<div class="ind-card">'+
-    '<div class="ind-hdr"><div class="ind-dot" style="background:#0E7490"></div><span class="ind-ttl">Top servicios solicitantes</span></div>'+
-    (topServicios.length?
-      '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px">'+
-      topServicios.map(([s,n])=>
-        '<div style="display:flex;align-items:center;gap:8px">'+
-        '<div style="font-size:12px;font-weight:500;min-width:120px;color:var(--gris6)">'+s+'</div>'+
-        '<div style="flex:1;height:6px;background:var(--gris2);border-radius:99px;overflow:hidden">'+
-        '<div style="height:100%;width:'+(topServicios[0][1]?Math.round(n/topServicios[0][1]*100):0)+'%;background:#0E7490;border-radius:99px"></div></div>'+
-        '<div style="font-size:12px;font-weight:700;color:#0E7490;min-width:24px;text-align:right">'+n+'</div>'+
-        '</div>'
-      ).join('')+
-      '</div>':'<div style="color:var(--gris4);font-size:12px;margin-top:8px">Sin datos</div>')+
-    '</div>'+
-    '<div class="ind-card">'+
-    '<div class="ind-hdr"><div class="ind-dot" style="background:var(--naranja2)"></div><span class="ind-ttl">Estudios por técnico</span></div>'+
-    (topTecnicos.length?
-      '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px">'+
-      topTecnicos.map(([t,n])=>
-        '<div style="display:flex;align-items:center;gap:8px">'+
-        '<div style="font-size:12px;font-weight:500;min-width:120px;color:var(--gris6);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+t+'</div>'+
-        '<div style="flex:1;height:6px;background:var(--gris2);border-radius:99px;overflow:hidden">'+
-        '<div style="height:100%;width:'+(topTecnicos[0][1]?Math.round(n/topTecnicos[0][1]*100):0)+'%;background:var(--naranja2);border-radius:99px"></div></div>'+
-        '<div style="font-size:12px;font-weight:700;color:var(--naranja2);min-width:24px;text-align:right">'+n+'</div>'+
-        '</div>'
-      ).join('')+
-      '</div>':'<div style="color:var(--gris4);font-size:12px;margin-top:8px">Sin datos de técnico</div>')+
+    '<div class="group-title">Productividad por médico radiólogo</div>'+
+    '<div class="ind-card" style="grid-column:1/-1">'+
+    '<div class="ind-hdr"><div class="ind-dot" style="background:var(--morado)"></div><span class="ind-ttl">Estudios reportados por médico radiólogo</span></div>'+
+    (topRadiologos.length?
+      '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px">'+
+      topRadiologos.map(([nombre,n])=>{
+        const pct=total?Math.round(n/total*100):0;
+        return '<div style="background:var(--morado3);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px">'+
+          '<div style="flex:1;min-width:0">'+
+          '<div style="font-size:11px;font-weight:600;color:var(--morado);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="'+nombre+'">'+nombre+'</div>'+
+          '<div style="font-size:9px;color:var(--gris4);margin-top:1px">'+pct+'% del total mensual</div>'+
+          '</div>'+
+          '<div style="font-size:22px;font-weight:700;color:var(--morado);flex-shrink:0">'+n+'</div>'+
+          '</div>';
+      }).join('')+
+      '</div>':
+      '<div style="color:var(--gris4);font-size:12px;margin-top:8px">Sin datos de radiólogo</div>')+
     '</div>'+
     '</div>';
 }
@@ -896,4 +901,3 @@ cargarDatos();
 </script>
 </body>
 </html>
-
