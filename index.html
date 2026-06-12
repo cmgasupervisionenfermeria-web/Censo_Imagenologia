@@ -781,8 +781,19 @@ function renderConcentrado(){
   est.forEach(r=>{ if(r.radiologo) porRadiologo[r.radiologo]=(porRadiologo[r.radiologo]||0)+1; });
   const topRadiologos=Object.entries(porRadiologo).sort((a,b)=>b[1]-a[1]);
 
-  // Estudios con medio de contraste
-  const conContraste=est.filter(r=>r.contraste&&r.contraste.indexOf('Sin')===-1&&r.contraste!=='').length;
+  // Estudios con medio de contraste — desglose por vía
+  const VIAS = [
+    { key:'intravenoso', label:'Intravenoso',   color:'#1D4ED8', bg:'#EFF6FF', match: c => c.indexOf('intravenoso')!==-1 && c.indexOf('oral')===-1 },
+    { key:'oral',        label:'Oral',          color:'#15803D', bg:'#F0FDF4', match: c => c.indexOf('oral')!==-1 && c.indexOf('intravenoso')===-1 },
+    { key:'oraliv',      label:'Oral + IV',     color:'#6D28D9', bg:'#F5F3FF', match: c => c.indexOf('oral')!==-1 && c.indexOf('intravenoso')!==-1 },
+    { key:'rectal',      label:'Rectal',        color:'#B45309', bg:'#FFFBEB', match: c => c.indexOf('rectal')!==-1 },
+    { key:'articular',   label:'Intraarticular',color:'#0E7490', bg:'#ECFEFF', match: c => c.indexOf('intraarticular')!==-1 },
+    { key:'endoluminal', label:'Endoluminal',   color:'#7C3AED', bg:'#F5F3FF', match: c => c.indexOf('endoluminal')!==-1 },
+    { key:'otro',        label:'Otra vía',      color:'#64748B', bg:'#F8FAFC', match: c => c.indexOf('no especificada')!==-1 },
+  ];
+  const sinContraste=est.filter(r=>!r.contraste||r.contraste.indexOf('Sin')!==-1||r.contraste==='').length;
+  const conContraste=total-sinContraste;
+  const porVia=VIAS.map(v=>({ ...v, n: est.filter(r=>r.contraste&&r.contraste.indexOf('Sin')===-1&&r.contraste!==''&&v.match(r.contraste.toLowerCase())).length })).filter(v=>v.n>0);
 
   function ic(color,titulo,formula,valor,desc,barPct){
     return '<div class="ind-card">'+
@@ -823,6 +834,36 @@ function renderConcentrado(){
     '<div class="stat-card"><div class="stat-lbl">🔵 Sin cita</div><div class="stat-val" style="color:#0369A1">'+sinCita+'</div><div class="stat-sub">'+(total?Math.round(sinCita/total*100):0)+'% del total</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">💉 Con contraste</div><div class="stat-val" style="color:var(--amarillo)">'+conContraste+'</div><div class="stat-sub">'+(total?Math.round(conContraste/total*100):0)+'% del total</div></div>'+
     '</div>'+
+
+    // ── Desglose medio de contraste ─────────────────────────────
+    '<div class="card" style="margin-bottom:14px">'+
+    '<div class="card-header"><span class="card-title">💉 Medio de contraste — desglose por vía de administración</span>'+
+    '<span style="font-size:12px;color:var(--gris4)">'+conContraste+' de '+total+' estudios ('+(total?Math.round(conContraste/total*100):0)+'%)</span></div>'+
+    '<div style="padding:14px 16px">'+
+    (porVia.length?
+      '<div style="display:flex;gap:10px;flex-wrap:wrap">'+
+      porVia.map(v=>{
+        const pct=conContraste?Math.round(v.n/conContraste*100):0;
+        return '<div style="flex:1;min-width:110px;background:'+v.bg+';border:1.5px solid '+v.color+'33;border-radius:10px;padding:10px 12px;text-align:center">'+
+          '<div style="font-size:10px;font-weight:700;color:'+v.color+';text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">'+v.label+'</div>'+
+          '<div style="font-size:28px;font-weight:700;color:'+v.color+';line-height:1">'+v.n+'</div>'+
+          '<div style="font-size:10px;color:'+v.color+';opacity:.7;margin-top:3px">'+pct+'% de los c/contraste</div>'+
+          '<div style="height:3px;background:'+v.color+'22;border-radius:99px;margin-top:8px;overflow:hidden">'+
+          '<div style="height:100%;width:'+pct+'%;background:'+v.color+';border-radius:99px"></div></div>'+
+          '</div>';
+      }).join('')+
+      '<div style="flex:1;min-width:110px;background:#F8FAFC;border:1.5px solid #CBD5E1;border-radius:10px;padding:10px 12px;text-align:center">'+
+      '<div style="font-size:10px;font-weight:700;color:var(--gris5);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Sin contraste</div>'+
+      '<div style="font-size:28px;font-weight:700;color:var(--gris5);line-height:1">'+sinContraste+'</div>'+
+      '<div style="font-size:10px;color:var(--gris4);margin-top:3px">'+(total?Math.round(sinContraste/total*100):0)+'% del total</div>'+
+      '<div style="height:3px;background:var(--gris2);border-radius:99px;margin-top:8px;overflow:hidden">'+
+      '<div style="height:100%;width:'+(total?Math.round(sinContraste/total*100):0)+'%;background:var(--gris4);border-radius:99px"></div></div>'+
+      '</div>'+
+      '</div>'
+      :
+      '<div style="color:var(--gris4);font-size:13px;padding:8px 0">No hay estudios con medio de contraste registrados en este período.</div>'
+    )+
+    '</div></div>'+
 
     // ── Estudios por modalidad ───────────────────────────────────
     '<div class="card" style="margin-bottom:14px">'+
