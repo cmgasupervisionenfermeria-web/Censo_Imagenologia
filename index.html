@@ -9,8 +9,8 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --azul:#0A3D6B;--azul2:#1565C0;--azul3:#E3F0FF;
-  --cyan:#0277BD;--cyan2:#039BE5;--cyan3:#E1F5FE;
+  --azul:#1C2331;--azul2:#2E3A4E;--azul3:#ECEEF1;
+  --cyan:#374151;--cyan2:#4B5563;--cyan3:#F3F4F6;
   --verde:#14532D;--verde2:#22C55E;--verde3:#DCFCE7;
   --naranja:#9A3412;--naranja2:#F97316;--naranja3:#FFEDD5;
   --morado:#6B21A8;--morado2:#9333EA;--morado3:#F3E8FF;
@@ -52,11 +52,11 @@ nav{background:var(--azul);padding:0 20px;display:flex;align-items:center;height
 .form-group.full{grid-column:1/-1}
 label{font-size:10px;font-weight:600;color:var(--gris5);text-transform:uppercase;letter-spacing:.04em}
 input,select,textarea{padding:7px 10px;border:1px solid var(--gris3);border-radius:7px;font-family:inherit;font-size:13px;color:var(--txt);background:#fff;outline:none;width:100%;transition:border .15s}
-input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(21,101,192,.1)}
+input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(46,58,78,.12)}
 .section-lbl{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gris4);padding:12px 0 8px;border-bottom:1px solid var(--gris2);margin-bottom:10px}
 .form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;padding-top:12px;border-top:1px solid var(--gris2);flex-wrap:wrap}
 /* Tipo estudio chips */
-.tipo-rayosx{background:#EBF2FB;color:#1B3F6E;border:1.5px solid #93C5FD;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
+.tipo-rayosx{background:#E8EAF0;color:#1C2331;border:1.5px solid #9CA3AF;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-us{background:#E1F5FE;color:#0277BD;border:1.5px solid #7DD3FC;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-tac{background:var(--naranja3);color:var(--naranja);border:1.5px solid #FCA974;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-masto{background:var(--morado3);color:var(--morado);border:1.5px solid #D8B4FE;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
@@ -67,7 +67,7 @@ input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(21,
 /* Tipo selector buttons */
 .tipo-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:4px}
 .tipo-btn{padding:9px 6px;border-radius:8px;border:2px solid;cursor:pointer;font-family:inherit;font-size:11px;font-weight:600;text-align:center;transition:all .15s}
-.tipo-btn.rxb{border-color:#93C5FD;color:#1B3F6E;background:#EBF2FB}
+.tipo-btn.rxb{border-color:#9CA3AF;color:#1C2331;background:#E8EAF0}
 .tipo-btn.usb{border-color:#7DD3FC;color:#0277BD;background:#E1F5FE}
 .tipo-btn.tacb{border-color:#FCA974;color:var(--naranja);background:var(--naranja3)}
 .tipo-btn.mastob{border-color:#D8B4FE;color:var(--morado);background:var(--morado3)}
@@ -82,7 +82,7 @@ input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(21,
 .urg-btn.selected{opacity:1;transform:scale(1.03);box-shadow:0 0 0 3px currentColor}
 .urg-btn:not(.selected){opacity:.5}
 /* Estado chips */
-.estado-solicitado{background:#EBF2FB;color:#1B3F6E;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
+.estado-solicitado{background:#ECEEF1;color:#1C2331;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
 .estado-proceso{background:var(--amarillo3);color:var(--amarillo);padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
 .estado-realizado{background:var(--verde3);color:var(--verde);padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
 .estado-reportado{background:var(--morado3);color:var(--morado);padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
@@ -165,7 +165,7 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
     <div id="pinError" style="color:#991B1B;font-size:12px;margin-bottom:10px;min-height:16px"></div>
     <div style="display:flex;gap:8px">
       <button onclick="closePinModal()" style="flex:1;padding:9px;border-radius:8px;border:1px solid #CBD5E1;background:transparent;cursor:pointer;font-family:inherit">Cancelar</button>
-      <button onclick="verifyPin()" style="flex:1;padding:9px;border-radius:8px;border:none;background:var(--azul);color:#fff;cursor:pointer;font-family:inherit;font-weight:500">Ingresar</button>
+      <button onclick="verifyPin()" style="flex:1;padding:9px;border-radius:8px;border:none;background:#1C2331;color:#fff;cursor:pointer;font-family:inherit;font-weight:500">Ingresar</button>
     </div>
   </div>
 </div>
@@ -238,8 +238,8 @@ const PIN = 'IMG1'; // Cambia este PIN
 const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
 const TIPOS_ESTUDIO = {
-  'Rayos X':    { clase:'tipo-rayosx', btnClase:'rxb',   icon:'🦴', color:'#1B3F6E' },
-  'Ultrasonido':{ clase:'tipo-us',     btnClase:'usb',   icon:'〰️', color:'#0277BD' },
+  'Rayos X':    { clase:'tipo-rayosx', btnClase:'rxb',   icon:'🦴', color:'#1C2331' },
+  'Ultrasonido':{ clase:'tipo-us',     btnClase:'usb',   icon:'〰️', color:'#0E7490' },
   'TAC':        { clase:'tipo-tac',    btnClase:'tacb',  icon:'🌀', color:'#9A3412' },
   'Mastografía':{ clase:'tipo-masto',  btnClase:'mastob',icon:'🔬', color:'#6B21A8' },
   'Especial':   { clase:'tipo-especial',btnClase:'espb', icon:'⚗️', color:'#856404' },
@@ -270,7 +270,7 @@ function dk(d){ if(typeof d==='string') d=new Date(d+'T12:00:00'); return d.getF
 function fmt(d){ const days=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']; const m=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']; return days[d.getDay()]+', '+d.getDate()+' de '+m[d.getMonth()]+' de '+d.getFullYear(); }
 function toast(msg,tipo){ const t=document.getElementById('toast'); t.textContent=msg; t.className='toast show '+(tipo||'success'); setTimeout(()=>t.className='toast',3000); }
 function closeModal(id){ document.getElementById(id).classList.remove('open'); }
-function showLoader(m){ let el=document.getElementById('lb'); if(!el){el=document.createElement('div');el.id='lb';el.style.cssText='position:fixed;top:54px;left:0;right:0;background:var(--azul);color:#fff;text-align:center;padding:6px;font-size:12px;z-index:300';document.body.appendChild(el);} el.textContent=m; el.style.display='block'; }
+function showLoader(m){ let el=document.getElementById('lb'); if(!el){el=document.createElement('div');el.id='lb';el.style.cssText='position:fixed;top:54px;left:0;right:0;background:#1C2331;color:#fff;text-align:center;padding:6px;font-size:12px;z-index:300';document.body.appendChild(el);} el.textContent=m; el.style.display='block'; }
 function hideLoader(){ const el=document.getElementById('lb'); if(el) el.style.display='none'; }
 function minEntre(h1,h2){ if(!h1||!h2) return null; const p1=h1.split(':').map(Number),p2=h2.split(':').map(Number); const diff=(p2[0]*60+p2[1])-(p1[0]*60+p1[1]); return diff>=0?diff:diff+1440; }
 function fmtMin(m){ if(m===null||m===undefined) return '-'; const h=Math.floor(m/60),min=m%60; return h>0?(h+'h '+min+'m'):(min+'m'); }
@@ -368,7 +368,7 @@ function renderRegistro(){
   const tac=data.filter(r=>r.tipo==='TAC').length;
 
   document.getElementById('statsDay').innerHTML=
-    '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:var(--azul)">'+total+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:#1C2331">'+total+'</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">🔴 Urgentes</div><div class="stat-val" style="color:var(--rojo)">'+urgentes+'</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">✅ Realizados</div><div class="stat-val" style="color:var(--verde)">'+realizados+'</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">📄 Reportados</div><div class="stat-val" style="color:var(--morado)">'+reportados+'</div></div>'+
@@ -616,7 +616,7 @@ function renderConcentrado(){
       '</div>';
   }
 
-  const tipoColors={'Rayos X':'#1B3F6E','Ultrasonido':'#0277BD','TAC':'#9A3412','Mastografía':'#6B21A8','Especial':'#856404'};
+  const tipoColors={'Rayos X':'#1C2331','Ultrasonido':'#0277BD','TAC':'#9A3412','Mastografía':'#6B21A8','Especial':'#856404'};
 
   document.getElementById('concentrado-body').innerHTML=
     '<div style="font-size:16px;font-weight:600;color:var(--gris7);margin-bottom:14px">'+
@@ -624,7 +624,7 @@ function renderConcentrado(){
 
     // KPIs principales
     '<div class="stats-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:14px">'+
-    '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:var(--azul)">'+total+'</div><div class="stat-sub">Prom. diario: '+Math.round(total/diasConAct*10)/10+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:#1C2331">'+total+'</div><div class="stat-sub">Prom. diario: '+Math.round(total/diasConAct*10)/10+'</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">Urgentes</div><div class="stat-val" style="color:var(--rojo)">'+urgentes+'</div><div class="stat-sub">'+(total?Math.round(urgentes/total*100):0)+'% del total</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">Reportados</div><div class="stat-val" style="color:var(--morado)">'+estRep+'</div><div class="stat-sub">'+pctReportados+'% del total</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">% Productividad</div><div class="stat-val" style="color:var(--verde)">'+pctRealizados+'%</div><div class="stat-sub">Realizados + Reportados</div></div>'+
@@ -633,8 +633,8 @@ function renderConcentrado(){
     // Tiempos
     '<div class="ind-grid-3" style="margin-bottom:12px">'+
     '<div class="group-title">Tiempos de Atención (promedios del mes)</div>'+
-    ic('var(--azul)','Espera para inicio','solicitud → inicio estudio',fmtMin(pEspera),'Promedio sobre '+tEspera.length+' registros. Meta urgentes: <30 min',pEspera!==null?Math.min(pEspera/60*100,100):0)+
-    ic('var(--cyan)','Duración del estudio','inicio → fin del estudio',fmtMin(pEjecucion),'Promedio sobre '+tEjecucion.length+' registros',pEjecucion!==null?Math.min(pEjecucion/60*100,100):0)+
+    ic('#1C2331','Espera para inicio','solicitud → inicio estudio',fmtMin(pEspera),'Promedio sobre '+tEspera.length+' registros. Meta urgentes: <30 min',pEspera!==null?Math.min(pEspera/60*100,100):0)+
+    ic('#0E7490','Duración del estudio','inicio → fin del estudio',fmtMin(pEjecucion),'Promedio sobre '+tEjecucion.length+' registros',pEjecucion!==null?Math.min(pEjecucion/60*100,100):0)+
     ic('var(--morado)','Tiempo al reporte','fin estudio → entrega reporte',fmtMin(pReporte),'Promedio sobre '+tReporte.length+' registros',pReporte!==null?Math.min(pReporte/120*100,100):0)+
     '</div>'+
 
@@ -661,9 +661,9 @@ function renderConcentrado(){
     '<div class="ind-grid-2" style="margin-bottom:12px">'+
     '<div class="group-title">Estado y Prioridad</div>'+
     '<div class="ind-card">'+
-    '<div class="ind-hdr"><div class="ind-dot" style="background:var(--azul)"></div><span class="ind-ttl">Estado de estudios del mes</span></div>'+
+    '<div class="ind-hdr"><div class="ind-dot" style="background:#1C2331"></div><span class="ind-ttl">Estado de estudios del mes</span></div>'+
     '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">'+
-    [['Solicitado',estSol,'var(--azul)','var(--azul3)'],['En proceso',estProc,'var(--amarillo)','var(--amarillo3)'],['Realizado',estReal,'var(--verde)','var(--verde3)'],['Reportado',estRep,'var(--morado)','var(--morado3)']].map(x=>
+    [['Solicitado',estSol,'#1C2331','#ECEEF1'],['En proceso',estProc,'var(--amarillo)','var(--amarillo3)'],['Realizado',estReal,'var(--verde)','var(--verde3)'],['Reportado',estRep,'var(--morado)','var(--morado3)']].map(x=>
       '<div style="flex:1;min-width:70px;background:'+x[3]+';border-radius:8px;padding:8px;text-align:center">'+
       '<div style="font-size:9px;color:'+x[2]+';font-weight:700;margin-bottom:2px">'+x[0]+'</div>'+
       '<div style="font-size:20px;font-weight:700;color:'+x[2]+'">'+x[1]+'</div>'+
@@ -687,15 +687,15 @@ function renderConcentrado(){
     '<div class="ind-grid-2" style="margin-bottom:12px">'+
     '<div class="group-title">Demanda por Servicio y Productividad del Personal</div>'+
     '<div class="ind-card">'+
-    '<div class="ind-hdr"><div class="ind-dot" style="background:var(--cyan)"></div><span class="ind-ttl">Top servicios solicitantes</span></div>'+
+    '<div class="ind-hdr"><div class="ind-dot" style="background:#0E7490"></div><span class="ind-ttl">Top servicios solicitantes</span></div>'+
     (topServicios.length?
       '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px">'+
       topServicios.map(([s,n])=>
         '<div style="display:flex;align-items:center;gap:8px">'+
         '<div style="font-size:12px;font-weight:500;min-width:120px;color:var(--gris6)">'+s+'</div>'+
         '<div style="flex:1;height:6px;background:var(--gris2);border-radius:99px;overflow:hidden">'+
-        '<div style="height:100%;width:'+(topServicios[0][1]?Math.round(n/topServicios[0][1]*100):0)+'%;background:var(--cyan);border-radius:99px"></div></div>'+
-        '<div style="font-size:12px;font-weight:700;color:var(--cyan);min-width:24px;text-align:right">'+n+'</div>'+
+        '<div style="height:100%;width:'+(topServicios[0][1]?Math.round(n/topServicios[0][1]*100):0)+'%;background:#0E7490;border-radius:99px"></div></div>'+
+        '<div style="font-size:12px;font-weight:700;color:#0E7490;min-width:24px;text-align:right">'+n+'</div>'+
         '</div>'
       ).join('')+
       '</div>':'<div style="color:var(--gris4);font-size:12px;margin-top:8px">Sin datos</div>')+
