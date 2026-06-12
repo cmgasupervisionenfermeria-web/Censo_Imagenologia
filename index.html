@@ -57,21 +57,29 @@ input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(46,
 .form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;padding-top:12px;border-top:1px solid var(--gris2);flex-wrap:wrap}
 /* Tipo estudio chips */
 .tipo-rayosx{background:#E8EAF0;color:#1C2331;border:1.5px solid #9CA3AF;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
-.tipo-us{background:#E1F5FE;color:#0277BD;border:1.5px solid #7DD3FC;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
+.tipo-us{background:#E1F5FE;color:#0E7490;border:1.5px solid #7DD3FC;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-tac{background:var(--naranja3);color:var(--naranja);border:1.5px solid #FCA974;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-masto{background:var(--morado3);color:var(--morado);border:1.5px solid #D8B4FE;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-especial{background:var(--amarillo3);color:var(--amarillo);border:1.5px solid #FDE68A;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
+.tipo-biopsia{background:#FEE2E2;color:#991B1B;border:1.5px solid #FCA5A5;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
+.tipo-arcoc{background:#D1FAE5;color:#065F46;border:1.5px solid #6EE7B7;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
+.tipo-rxport{background:#F0FDF4;color:#166534;border:1.5px solid #86EFAC;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
+.tipo-rxesp{background:#FEF3C7;color:#92400E;border:1.5px solid #FCD34D;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 /* Urgencia chips */
 .urg-urgente{background:var(--rojo3);color:var(--rojo);border:1.5px solid #F5A49A;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700}
 .urg-programado{background:var(--verde3);color:var(--verde);border:1.5px solid #86EFAC;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700}
+.urg-sincita{background:#F0F9FF;color:#0369A1;border:1.5px solid #7DD3FC;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700}
 /* Tipo selector buttons */
-.tipo-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:4px}
-.tipo-btn{padding:9px 6px;border-radius:8px;border:2px solid;cursor:pointer;font-family:inherit;font-size:11px;font-weight:600;text-align:center;transition:all .15s}
+.tipo-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:4px}
+.tipo-btn{padding:9px 6px;border-radius:8px;border:2px solid;cursor:pointer;font-family:inherit;font-size:11px;font-weight:600;text-align:center;transition:all .15s;line-height:1.3}
 .tipo-btn.rxb{border-color:#9CA3AF;color:#1C2331;background:#E8EAF0}
-.tipo-btn.usb{border-color:#7DD3FC;color:#0277BD;background:#E1F5FE}
+.tipo-btn.usb{border-color:#7DD3FC;color:#0E7490;background:#E1F5FE}
 .tipo-btn.tacb{border-color:#FCA974;color:var(--naranja);background:var(--naranja3)}
 .tipo-btn.mastob{border-color:#D8B4FE;color:var(--morado);background:var(--morado3)}
-.tipo-btn.espb{border-color:#FDE68A;color:var(--amarillo);background:var(--amarillo3)}
+.tipo-btn.biob{border-color:#FCA5A5;color:#991B1B;background:#FEE2E2}
+.tipo-btn.arcob{border-color:#6EE7B7;color:#065F46;background:#D1FAE5}
+.tipo-btn.rxpb{border-color:#86EFAC;color:#166534;background:#F0FDF4}
+.tipo-btn.rxeb{border-color:#FCD34D;color:#92400E;background:#FEF3C7}
 .tipo-btn.selected{opacity:1;transform:scale(1.04);box-shadow:0 0 0 3px currentColor}
 .tipo-btn:not(.selected){opacity:.5}
 /* Urgencia buttons */
@@ -79,6 +87,7 @@ input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(46,
 .urg-btn{flex:1;padding:8px;border-radius:8px;border:2px solid;cursor:pointer;font-family:inherit;font-size:12px;font-weight:600;text-align:center;transition:all .15s}
 .urg-btn.urgente{border-color:var(--rojo2);color:var(--rojo);background:var(--rojo3)}
 .urg-btn.programado{border-color:var(--verde2);color:var(--verde);background:var(--verde3)}
+.urg-btn.sincita{border-color:#7DD3FC;color:#0369A1;background:#F0F9FF}
 .urg-btn.selected{opacity:1;transform:scale(1.03);box-shadow:0 0 0 3px currentColor}
 .urg-btn:not(.selected){opacity:.5}
 /* Estado chips */
@@ -192,10 +201,9 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>#</th><th>Fecha</th><th>H. Solicitud</th><th>H. Inicio</th><th>H. Fin</th><th>H. Reporte</th>
-          <th>Tipo</th><th>Estudio</th><th>Prioridad</th><th>Servicio</th>
-          <th>Paciente</th><th>Expediente</th><th>Edad</th><th>Sexo</th>
-          <th>Técnico</th><th>Radiólogo</th><th>Estado</th><th>Observaciones</th><th></th>
+          <th>#</th><th>Fecha</th><th>H. Inicio</th><th>H. Fin</th>
+          <th>Tipo</th><th>Estudio</th><th>Medio contraste</th><th>Prioridad</th><th>Servicio</th>
+          <th>Técnico</th><th>Radiólogo</th><th>Observaciones</th><th></th>
         </tr></thead>
         <tbody id="reg-tbody"></tbody>
       </table>
@@ -238,16 +246,102 @@ const PIN = 'IMG1'; // Cambia este PIN
 const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
 const TIPOS_ESTUDIO = {
-  'Rayos X':    { clase:'tipo-rayosx', btnClase:'rxb',   icon:'🦴', color:'#1C2331' },
-  'Ultrasonido':{ clase:'tipo-us',     btnClase:'usb',   icon:'〰️', color:'#0E7490' },
-  'TAC':        { clase:'tipo-tac',    btnClase:'tacb',  icon:'🌀', color:'#9A3412' },
-  'Mastografía':{ clase:'tipo-masto',  btnClase:'mastob',icon:'🔬', color:'#6B21A8' },
-  'Especial':   { clase:'tipo-especial',btnClase:'espb', icon:'⚗️', color:'#856404' },
+  'Rayos X':       { clase:'tipo-rayosx', btnClase:'rxb',   icon:'🦴', color:'#1C2331' },
+  'Ultrasonido':   { clase:'tipo-us',     btnClase:'usb',   icon:'〰️', color:'#0E7490' },
+  'TAC':           { clase:'tipo-tac',    btnClase:'tacb',  icon:'🌀', color:'#9A3412' },
+  'Mastografía':   { clase:'tipo-masto',  btnClase:'mastob',icon:'🔬', color:'#6B21A8' },
+  'Biopsias':      { clase:'tipo-biopsia',btnClase:'biob',  icon:'🩸', color:'#991B1B' },
+  'Arco en C':     { clase:'tipo-arcoc',  btnClase:'arcob', icon:'⚡', color:'#065F46' },
+  'Rx Portátil':   { clase:'tipo-rxport', btnClase:'rxpb',  icon:'📱', color:'#166534' },
+  'Rx Especial':   { clase:'tipo-rxesp',  btnClase:'rxeb',  icon:'✨', color:'#92400E' },
 };
 
 const ESTUDIOS_ESPECIALES = [
   'Histerosalpingografía','Biopsia guiada por US','Biopsia guiada por TAC',
   'Articulografía','Urografía','Colangiografía','Otro especial'
+];
+
+// Catálogo de estudios por tipo (con opciones de medio de contraste)
+const CATALOGO = {
+  'Rayos X': [
+    'Tórax PA','Tórax AP (portátil)','Tórax lateral',
+    'Abdomen simple','Abdomen de pie','Columna cervical AP/Lat',
+    'Columna lumbar AP/Lat','Columna dorsal AP/Lat','Pelvis AP',
+    'Cadera AP/Lat','Rodilla AP/Lat','Tobillo AP/Lat',
+    'Pie AP/Lat/Oblicua','Mano AP/Oblicua','Muñeca AP/Lat',
+    'Antebrazo AP/Lat','Codo AP/Lat','Húmero AP/Lat',
+    'Hombro AP','Clavícula AP','Cráneo AP/Lat',
+    'Senos paranasales Waters','Mandíbula AP/Lat','Ortopantomografía',
+    'Urograma excretor (con MC IV)','Colon por enema (con MC oral-rectal)',
+    'Esófago-gastro-duodenal (con MC oral)','Serie gastroduodenal (con MC oral)',
+  ],
+  'Ultrasonido': [
+    'US Abdomen superior','US Abdomen inferior','US Abdomen completo',
+    'US Pélvico transabdominal','US Pélvico transvaginal',
+    'US Obstétrico 1er trimestre','US Obstétrico 2do trimestre','US Obstétrico 3er trimestre',
+    'US Tiroides','US Mama bilateral','US Testicular bilateral',
+    'US Renal y vías urinarias','US Hepático','US Vesicular',
+    'US Tejidos blandos','US Doppler vascular periférico',
+    'US Doppler renal','US Doppler obstétrico',
+    'US Cervical ganglionar','US Guía para procedimiento',
+  ],
+  'TAC': [
+    'TAC Cráneo simple','TAC Cráneo con MC IV','TAC Cráneo simple + con MC IV',
+    'TAC Tórax simple','TAC Tórax con MC IV','TAC Tórax simple + con MC IV',
+    'TAC Abdomen-pelvis simple','TAC Abdomen-pelvis con MC IV',
+    'TAC Abdomen-pelvis con MC oral e IV','TAC Abdomen-pelvis simple + con MC',
+    'TAC Columna cervical','TAC Columna dorsal','TAC Columna lumbar',
+    'TAC Pelvis simple','TAC Pelvis con MC IV',
+    'TAC Macizo facial','TAC Senos paranasales',
+    'TAC Cuello simple','TAC Cuello con MC IV',
+    'TAC Tórax-Abdomen-Pelvis (TAP) simple','TAC TAP con MC IV',
+    'Angio-TAC pulmonar (TEP)','Angio-TAC aorta','Angio-TAC coronario',
+    'TAC Extremidades','TAC Urografía (Uro-TAC)',
+  ],
+  'Mastografía': [
+    'Mastografía bilateral','Mastografía unilateral derecha','Mastografía unilateral izquierda',
+    'Mastografía de seguimiento','Mastografía con spot compresión',
+    'Mastografía con magnificación','Mastografía + US mama',
+  ],
+  'Biopsias': [
+    'Biopsia de mama guiada por US','Biopsia de mama guiada por mastografía (estereotaxia)',
+    'Biopsia de nódulo tiroideo guiada por US','Biopsia hepática guiada por US',
+    'Biopsia renal guiada por US','Biopsia de ganglio guiada por US',
+    'Biopsia de tejidos blandos guiada por US','Biopsia ósea guiada por TAC',
+    'Biopsia pulmonar guiada por TAC','Biopsia hepática guiada por TAC',
+    'Biopsia retroperitoneal guiada por TAC',
+  ],
+  'Arco en C': [
+    'Reducción de fractura con Arco en C','Colocación de clavo intramedular con Arco en C',
+    'Artrodesis con Arco en C','Colocación de tornillos pediculares con Arco en C',
+    'Colocación de catéter central guiado','Drenaje de colección con Arco en C',
+    'Procedimiento ortopédico con Arco en C','Fluoroscopía intraoperatoria',
+  ],
+  'Rx Portátil': [
+    'Rx Tórax portátil AP','Rx Abdomen portátil AP',
+    'Rx Pelvis portátil','Rx Extremidad portátil',
+    'Rx Cráneo portátil','Rx Columna portátil',
+    'Rx Tórax portátil UCI','Rx Tórax portátil Urgencias',
+    'Rx Tórax portátil Quirófano',
+  ],
+  'Rx Especial': [
+    'Histerosalpingografía (con MC)','Urografía excretora (con MC IV)',
+    'Colon por enema (con MC rectal)','Esófago con MC oral','Tránsito intestinal (con MC oral)',
+    'Articulografía (con MC intraarticular)','Fistulografía (con MC)','Sialografía',
+    'Dacriocistografía','Broncografía','Colangiografía percutánea',
+    'Colangiografía transoperatoria','Mielograma','Otro estudio especial',
+  ],
+};
+
+const CONTRASTE_OPTS = [
+  '— Sin medio de contraste —',
+  'Con MC intravenoso (IV)',
+  'Con MC oral',
+  'Con MC oral e IV',
+  'Con MC rectal',
+  'Con MC intraarticular',
+  'Con MC endoluminal',
+  'Con MC (vía no especificada)',
 ];
 
 const SERVICIOS = [
@@ -284,7 +378,9 @@ function tipoChip(tipo){
 }
 function urgChip(u){
   if(!u) return '-';
-  return u==='Urgente'?'<span class="urg-urgente">🔴 Urgente</span>':'<span class="urg-programado">🟢 Programado</span>';
+  if(u==='Urgente') return '<span class="urg-urgente">🔴 Urgente</span>';
+  if(u==='Sin cita') return '<span class="urg-sincita">🔵 Sin cita</span>';
+  return '<span class="urg-programado">🟢 Programado</span>';
 }
 function estadoChip(e){
   if(!e) return '-';
@@ -361,46 +457,39 @@ function renderRegistro(){
 
   const total=data.length;
   const urgentes=data.filter(r=>r.prioridad==='Urgente').length;
-  const reportados=data.filter(r=>r.estado==='Reportado').length;
-  const realizados=data.filter(r=>r.estado==='Realizado'||r.estado==='Reportado').length;
-  const rx=data.filter(r=>r.tipo==='Rayos X').length;
+  const sinCita=data.filter(r=>r.prioridad==='Sin cita').length;
+  const rx=data.filter(r=>r.tipo==='Rayos X'||r.tipo==='Rx Portátil'||r.tipo==='Rx Especial').length;
   const us=data.filter(r=>r.tipo==='Ultrasonido').length;
   const tac=data.filter(r=>r.tipo==='TAC').length;
+  const otros=data.filter(r=>r.tipo==='Mastografía'||r.tipo==='Biopsias'||r.tipo==='Arco en C').length;
 
   document.getElementById('statsDay').innerHTML=
     '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:#1C2331">'+total+'</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">🔴 Urgentes</div><div class="stat-val" style="color:var(--rojo)">'+urgentes+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">✅ Realizados</div><div class="stat-val" style="color:var(--verde)">'+realizados+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">📄 Reportados</div><div class="stat-val" style="color:var(--morado)">'+reportados+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">🦴 Rayos X</div><div class="stat-val" style="color:var(--azul2)">'+rx+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">〰️ US / 🌀 TAC</div><div class="stat-val" style="color:var(--cyan)">'+us+' / '+tac+'</div></div>';
+    '<div class="stat-card"><div class="stat-lbl">🔵 Sin cita</div><div class="stat-val" style="color:#0369A1">'+sinCita+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">🦴 Rx (todos)</div><div class="stat-val" style="color:#1C2331">'+rx+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">〰️ US / 🌀 TAC</div><div class="stat-val" style="color:#0E7490">'+us+' / '+tac+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">🔬 Masto/Bio/ArcC</div><div class="stat-val" style="color:var(--morado)">'+otros+'</div></div>';
 
   if(!data.length){tbody.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
 
   tbody.innerHTML=data.map(function(r){
-    const minRealiz=minEntre(r.horaSolicitud,r.horaInicio);
     const minEjecucion=minEntre(r.horaInicio,r.horaFin);
     const isUrgente=r.prioridad==='Urgente';
     const rowStyle=isUrgente?'border-left:3px solid var(--rojo2);':'';
     return '<tr onclick="requirePin(()=>abrirModal('+r.id+'))" style="'+rowStyle+'">'+
       '<td style="font-weight:600;color:var(--gris4)">'+(r.num||'-')+'</td>'+
       '<td style="font-size:11px">'+(r.fecha||'-')+'</td>'+
-      '<td style="font-family:\'DM Mono\',monospace;font-size:11px">'+(r.horaSolicitud||'-')+'</td>'+
       '<td style="font-family:\'DM Mono\',monospace;font-size:11px">'+(r.horaInicio||'-')+'</td>'+
       '<td style="font-family:\'DM Mono\',monospace;font-size:11px">'+(r.horaFin||'-')+'</td>'+
-      '<td style="font-family:\'DM Mono\',monospace;font-size:11px">'+(r.horaReporte||'-')+'</td>'+
       '<td>'+tipoChip(r.tipo)+'</td>'+
-      '<td style="font-size:11px;max-width:120px">'+(r.estudio||'-')+'</td>'+
+      '<td style="font-size:11px;max-width:140px">'+(r.estudio||'-')+'</td>'+
+      '<td style="font-size:10px;color:var(--gris5);max-width:120px">'+(r.contraste&&r.contraste.indexOf('Sin')===-1?'<span style="background:#FEF9C3;color:#92400E;border-radius:4px;padding:1px 5px;font-weight:600">'+r.contraste+'</span>':'-')+'</td>'+
       '<td>'+urgChip(r.prioridad)+'</td>'+
       '<td style="font-size:11px">'+(r.servicio||'-')+'</td>'+
-      '<td style="font-weight:500;max-width:130px;font-size:11px">'+(r.paciente||'-')+'</td>'+
-      '<td style="font-family:\'DM Mono\',monospace;font-size:11px">'+(r.expediente||'-')+'</td>'+
-      '<td style="text-align:center">'+(r.edad||'-')+'</td>'+
-      '<td style="text-align:center">'+(r.sexo||'-')+'</td>'+
       '<td style="font-size:11px">'+(r.tecnico||'-')+'</td>'+
       '<td style="font-size:11px">'+(r.radiologo||'-')+'</td>'+
-      '<td>'+estadoChip(r.estado)+'</td>'+
       '<td style="font-size:11px;color:var(--gris4);max-width:120px">'+(r.observaciones||'-')+'</td>'+
       '<td><button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();requirePin(()=>eliminar('+r.id+'))" style="color:var(--rojo)">✕</button></td>'+
       '</tr>';
@@ -414,8 +503,11 @@ function abrirModal(id){
   const uv=rec.prioridad||'';
 
   const serviciosOpts=SERVICIOS.map(s=>'<option'+(rec.servicio===s?' selected':'')+'>'+s+'</option>').join('');
-  const estadosOpts=ESTADOS.map(s=>'<option'+(rec.estado===s?' selected':'')+'>'+s+'</option>').join('');
-  const espOpts=ESTUDIOS_ESPECIALES.map(s=>'<option value="'+s+'"'+(rec.estudio===s?' selected':'')+'>'+s+'</option>').join('');
+  const contrasteOpts=CONTRASTE_OPTS.map(s=>'<option'+(rec.contraste===s?' selected':'')+'>'+s+'</option>').join('');
+
+  // Catálogo del tipo actual
+  const catalogoActual=tv&&CATALOGO[tv]?CATALOGO[tv]:[];
+  const catalogoOpts=['— Selecciona estudio —',...catalogoActual].map(s=>'<option value="'+s+'"'+(rec.estudio===s?' selected':'')+'>'+s+'</option>').join('');
 
   document.getElementById('modalEstudioContent').innerHTML=
     '<div class="modal-title">'+(id?'Editar estudio':'Nuevo estudio — Imagenología')+
@@ -428,42 +520,37 @@ function abrirModal(id){
     ).join('')+
     '</div>'+
     '<input type="hidden" id="f-tipo" value="'+tv+'">'+
-    '<div id="f-estudio-wrap" style="margin-top:10px;'+(tv==='Especial'?'':'display:none')+'">'+
-    '<div class="form-group"><label>Tipo de estudio especial</label>'+
-    '<select id="f-estudio-esp">'+espOpts+'</select></div></div>'+
-    '<div id="f-estudio-libre-wrap" style="margin-top:10px;'+(tv&&tv!=='Especial'?'':'display:none')+'">'+
-    '<div class="form-group"><label>Descripción del estudio</label>'+
-    '<input id="f-estudio-libre" value="'+(rec.estudio&&tv!=='Especial'?rec.estudio:'')+'" placeholder="ej. Tórax PA, Abdomen US, TAC cráneo..."></div></div>'+
+
+    // Estudio: desplegable del catálogo + campo libre
+    '<div id="f-estudio-wrap" style="margin-top:10px;'+(tv?'':'display:none')+'">'+
+    '<div class="form-grid" style="align-items:end">'+
+    '<div class="form-group"><label>Estudio</label>'+
+    '<select id="f-estudio-sel" onchange="syncEstudioLibre(this.value)">'+catalogoOpts+'</select></div>'+
+    '<div class="form-group"><label>Descripción personalizada (opcional)</label>'+
+    '<input id="f-estudio-libre" value="'+(rec.estudio||'')+'" placeholder="O escribe aquí libremente"></div>'+
+    '</div>'+
+    '<div class="form-group" style="margin-top:8px"><label>Medio de contraste</label>'+
+    '<select id="f-contraste">'+contrasteOpts+'</select></div>'+
+    '</div>'+
 
     '<div class="section-lbl" style="margin-top:12px">Prioridad</div>'+
     '<div class="urg-btns">'+
     '<button class="urg-btn urgente'+(uv==='Urgente'?' selected':'')+'" onclick="selUrg(\'Urgente\',this)">🔴 Urgente</button>'+
     '<button class="urg-btn programado'+(uv==='Programado'?' selected':'')+'" onclick="selUrg(\'Programado\',this)">🟢 Programado</button>'+
+    '<button class="urg-btn sincita'+(uv==='Sin cita'?' selected':'')+'" onclick="selUrg(\'Sin cita\',this)">🔵 Sin cita</button>'+
     '</div>'+
     '<input type="hidden" id="f-prioridad" value="'+uv+'">'+
 
     '<div class="section-lbl" style="margin-top:12px">Tiempos</div>'+
-    '<div class="form-grid-4">'+
+    '<div class="form-grid-3">'+
     '<div class="form-group"><label>Fecha</label><input type="date" id="f-fecha" value="'+(rec.fecha||dk(cur))+'"></div>'+
-    '<div class="form-group"><label>H. Solicitud</label><input type="time" id="f-hsol" value="'+(rec.horaSolicitud||'')+'"></div>'+
     '<div class="form-group"><label>H. Inicio estudio</label><input type="time" id="f-hinicio" value="'+(rec.horaInicio||'')+'"></div>'+
     '<div class="form-group"><label>H. Fin estudio</label><input type="time" id="f-hfin" value="'+(rec.horaFin||'')+'"></div>'+
-    '<div class="form-group"><label>H. Entrega reporte</label><input type="time" id="f-hrep" value="'+(rec.horaReporte||'')+'"></div>'+
-    '<div class="form-group"><label>Estado</label><select id="f-estado">'+estadosOpts+'</select></div>'+
     '</div>'+
 
-    '<div class="section-lbl">Paciente</div>'+
+    '<div class="section-lbl">Servicio y Personal</div>'+
     '<div class="form-grid-3">'+
-    '<div class="form-group full"><label>Nombre del paciente</label><input id="f-pac" value="'+(rec.paciente||'')+'" placeholder="Apellidos, Nombre"></div>'+
-    '<div class="form-group"><label>N° Expediente</label><input id="f-exp" value="'+(rec.expediente||'')+'"></div>'+
-    '<div class="form-group"><label>Fecha de nacimiento</label><input type="date" id="f-fnac" value="'+(rec.fechaNac||'')+'" onchange="document.getElementById(\'f-edad\').value=calcEdad(this.value)"></div>'+
-    '<div class="form-group"><label>Edad</label><input type="number" id="f-edad" value="'+(rec.edad||'')+'" min="0" placeholder="Auto"></div>'+
-    '<div class="form-group"><label>Sexo</label><select id="f-sexo"><option value="">-</option><option value="M"'+(rec.sexo==='M'?' selected':'')+'>Masculino</option><option value="F"'+(rec.sexo==='F'?' selected':'')+'>Femenino</option></select></div>'+
     '<div class="form-group"><label>Servicio solicitante</label><select id="f-servicio"><option value="">-</option>'+serviciosOpts+'</select></div>'+
-    '</div>'+
-
-    '<div class="section-lbl">Personal de Imagenología</div>'+
-    '<div class="form-grid-3">'+
     '<div class="form-group"><label>Técnico radiólogo</label><input id="f-tecnico" value="'+(rec.tecnico||'')+'" placeholder="Nombre del técnico"></div>'+
     '<div class="form-group"><label>Médico radiólogo (reporte)</label><input id="f-radiologo" value="'+(rec.radiologo||'')+'" placeholder="Nombre del radiólogo"></div>'+
     '<div class="form-group"><label>Médico solicitante</label><input id="f-solicitante" value="'+(rec.medicoSolicitante||'')+'"></div>'+
@@ -479,12 +566,24 @@ function abrirModal(id){
   document.getElementById('modalEstudio').classList.add('open');
 }
 
+function syncEstudioLibre(val){
+  const libre=document.getElementById('f-estudio-libre');
+  if(libre && val && val!=='— Selecciona estudio —') libre.value=val;
+}
+
 function selTipo(val,btn){
   document.getElementById('f-tipo').value=val;
   document.querySelectorAll('.tipo-btn').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
-  document.getElementById('f-estudio-wrap').style.display=val==='Especial'?'block':'none';
-  document.getElementById('f-estudio-libre-wrap').style.display=val&&val!=='Especial'?'block':'none';
+  // Mostrar sección estudio
+  const wrap=document.getElementById('f-estudio-wrap');
+  if(wrap) wrap.style.display=val?'block':'none';
+  // Actualizar catálogo
+  const sel=document.getElementById('f-estudio-sel');
+  if(sel){
+    const lista=val&&CATALOGO[val]?CATALOGO[val]:[];
+    sel.innerHTML=['— Selecciona estudio —',...lista].map(s=>'<option value="'+s+'">'+s+'</option>').join('');
+  }
 }
 function selUrg(val,btn){
   document.getElementById('f-prioridad').value=val;
@@ -494,36 +593,26 @@ function selUrg(val,btn){
 
 async function guardarEstudio(id){
   const tipo=document.getElementById('f-tipo').value;
-  const esEsp=tipo==='Especial';
-  const estudio=esEsp
-    ?document.getElementById('f-estudio-esp').value
-    :(document.getElementById('f-estudio-libre')?.value||'');
-  const hsol=document.getElementById('f-hsol').value;
+  // Estudio: preferir texto libre si existe, si no usar el desplegable
+  const libre=(document.getElementById('f-estudio-libre')?.value||'').trim();
+  const sel=document.getElementById('f-estudio-sel')?.value||'';
+  const estudio=libre&&libre!=='— Selecciona estudio —'?libre:(sel!=='— Selecciona estudio —'?sel:'');
   const hinicio=document.getElementById('f-hinicio').value;
   const hfin=document.getElementById('f-hfin').value;
-  const hrep=document.getElementById('f-hrep').value;
+  const contraste=document.getElementById('f-contraste')?.value||'';
 
   const d={
     id:id||nid++,
     num:(function(){ const f=document.getElementById('f-fecha').value; const n=DB.estudios.filter(r=>r.fecha===f).length+(id?0:1); return id?(DB.estudios.find(r=>r.id===id)||{}).num||n:n; }()),
     fecha:document.getElementById('f-fecha').value,
-    horaSolicitud:hsol,
     horaInicio:hinicio,
     horaFin:hfin,
-    horaReporte:hrep,
-    minEsperaInicio:minEntre(hsol,hinicio),
     minEjecucion:minEntre(hinicio,hfin),
-    minEntregaReporte:minEntre(hfin,hrep),
     tipo:tipo,
     estudio:estudio,
+    contraste:contraste,
     prioridad:document.getElementById('f-prioridad').value,
-    estado:document.getElementById('f-estado').value,
     servicio:document.getElementById('f-servicio').value,
-    paciente:document.getElementById('f-pac').value.trim(),
-    expediente:document.getElementById('f-exp').value.trim().toUpperCase(),
-    fechaNac:document.getElementById('f-fnac').value,
-    edad:document.getElementById('f-edad').value,
-    sexo:document.getElementById('f-sexo').value,
     tecnico:document.getElementById('f-tecnico').value.trim(),
     radiologo:document.getElementById('f-radiologo').value.trim(),
     medicoSolicitante:document.getElementById('f-solicitante').value.trim(),
@@ -587,8 +676,9 @@ function renderConcentrado(){
   // Prioridad
   const urgentes=est.filter(r=>r.prioridad==='Urgente').length;
   const programados=est.filter(r=>r.prioridad==='Programado').length;
+  const sinCita=est.filter(r=>r.prioridad==='Sin cita').length;
 
-  // Estado
+  // Estado (por si hay datos viejos)
   const estSol=est.filter(r=>r.estado==='Solicitado').length;
   const estProc=est.filter(r=>r.estado==='En proceso').length;
   const estReal=est.filter(r=>r.estado==='Realizado').length;
@@ -616,7 +706,7 @@ function renderConcentrado(){
       '</div>';
   }
 
-  const tipoColors={'Rayos X':'#1C2331','Ultrasonido':'#0277BD','TAC':'#9A3412','Mastografía':'#6B21A8','Especial':'#856404'};
+  const tipoColors={'Rayos X':'#1C2331','Ultrasonido':'#0E7490','TAC':'#9A3412','Mastografía':'#6B21A8','Biopsias':'#991B1B','Arco en C':'#065F46','Rx Portátil':'#166534','Rx Especial':'#92400E'};
 
   document.getElementById('concentrado-body').innerHTML=
     '<div style="font-size:16px;font-weight:600;color:var(--gris7);margin-bottom:14px">'+
@@ -674,7 +764,7 @@ function renderConcentrado(){
     '<div class="ind-card">'+
     '<div class="ind-hdr"><div class="ind-dot" style="background:var(--rojo)"></div><span class="ind-ttl">Prioridad</span></div>'+
     '<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px">'+
-    [['🔴 Urgentes',urgentes,'var(--rojo)'],['🟢 Programados',programados,'var(--verde)'],['Total',total,'var(--gris6)']].map(x=>
+    [['🔴 Urgentes',urgentes,'var(--rojo)'],['🟢 Programados',programados,'var(--verde)'],['🔵 Sin cita',sinCita,'#0369A1'],['Total',total,'var(--gris6)']].map(x=>
       '<div style="flex:1;text-align:center">'+
       '<div style="font-size:10px;color:'+x[2]+';font-weight:700;margin-bottom:2px">'+x[0]+'</div>'+
       '<div style="font-size:24px;font-weight:700;color:'+x[2]+'">'+x[1]+'</div>'+
