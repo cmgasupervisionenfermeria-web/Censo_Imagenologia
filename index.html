@@ -142,7 +142,7 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
 .empty{text-align:center;padding:32px 20px;color:var(--gris4)}
 .empty-icon{font-size:28px;margin-bottom:6px;opacity:.4}
 @media(max-width:700px){
-  .stats-grid{grid-template-columns:repeat(2,1fr)!important}
+  .stats-grid{grid-template-columns:repeat(3,1fr)!important}
   .form-grid-3,.form-grid-4{grid-template-columns:1fr 1fr}
   .tipo-btns{grid-template-columns:repeat(3,1fr)}
   .ind-grid-2,.ind-grid-3{grid-template-columns:1fr}
@@ -191,7 +191,7 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
     <button class="btn btn-ghost btn-sm" onclick="exportarCSV()">↓ CSV</button>
   </div>
 
-  <div id="statsDay" class="stats-grid" style="grid-template-columns:repeat(6,1fr)"></div>
+  <div id="statsDay" class="stats-grid" style="grid-template-columns:repeat(9,1fr)"></div>
 
   <div class="card">
     <div class="card-header">
@@ -533,20 +533,25 @@ function renderRegistro(){
   document.getElementById('reg-count').textContent=data.length+' estudio'+(data.length!==1?'s':'');
 
   const total=data.length;
-  const urgentes=data.filter(r=>r.prioridad==='Urgente').length;
-  const sinCita=data.filter(r=>r.prioridad==='Sin cita').length;
-  const rx=data.filter(r=>r.tipo==='Rayos X'||r.tipo==='Rx Portátil'||r.tipo==='Rx Especial').length;
+  const rx=data.filter(r=>r.tipo==='Rayos X').length;
   const us=data.filter(r=>r.tipo==='Ultrasonido').length;
   const tac=data.filter(r=>r.tipo==='TAC').length;
-  const otros=data.filter(r=>r.tipo==='Mastografía'||r.tipo==='Biopsias'||r.tipo==='Arco en C').length;
+  const masto=data.filter(r=>r.tipo==='Mastografía').length;
+  const bio=data.filter(r=>r.tipo==='Biopsias').length;
+  const arcoc=data.filter(r=>r.tipo==='Arco en C').length;
+  const rxport=data.filter(r=>r.tipo==='Rx Portátil').length;
+  const rxesp=data.filter(r=>r.tipo==='Rx Especial').length;
 
   document.getElementById('statsDay').innerHTML=
     '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:#1C2331">'+total+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">🔴 Urgentes</div><div class="stat-val" style="color:var(--rojo)">'+urgentes+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">🔵 Sin cita</div><div class="stat-val" style="color:#0369A1">'+sinCita+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">🦴 Rx (todos)</div><div class="stat-val" style="color:#1C2331">'+rx+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">〰️ US / 🌀 TAC</div><div class="stat-val" style="color:#0E7490">'+us+' / '+tac+'</div></div>'+
-    '<div class="stat-card"><div class="stat-lbl">🔬 Masto/Bio/ArcC</div><div class="stat-val" style="color:var(--morado)">'+otros+'</div></div>';
+    '<div class="stat-card"><div class="stat-lbl">🦴 Rayos X</div><div class="stat-val" style="color:#1C2331">'+rx+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">〰️ Ultrasonido</div><div class="stat-val" style="color:#0E7490">'+us+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">🌀 Tomografía</div><div class="stat-val" style="color:#9A3412">'+tac+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">🔬 Mastografía</div><div class="stat-val" style="color:#6B21A8">'+masto+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">🩸 Biopsias</div><div class="stat-val" style="color:#991B1B">'+bio+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">⚡ Arco en C</div><div class="stat-val" style="color:#065F46">'+arcoc+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">📱 Rx Portátil</div><div class="stat-val" style="color:#166534">'+rxport+'</div></div>'+
+    '<div class="stat-card"><div class="stat-lbl">✨ Rx Especial</div><div class="stat-val" style="color:#92400E">'+rxesp+'</div></div>';
 
   if(!data.length){tbody.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
@@ -891,3 +896,4 @@ cargarDatos();
 </script>
 </body>
 </html>
+
