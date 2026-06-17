@@ -431,6 +431,21 @@ const ESTADOS = ['Solicitado','En proceso','Realizado','Reportado'];
 
 const GAS_OK = GAS_URL.indexOf('TU_URL') === -1;
 
+// ── JSONP HELPER (evita el bloqueo CORS de fetch al hablar con Apps Script) ─
+function jsonpRequest(url){
+  return new Promise((resolve,reject)=>{
+    const cb='jsonp_cb_'+Date.now()+'_'+Math.floor(Math.random()*100000);
+    const script=document.createElement('script');
+    let done=false;
+    function cleanup(){ delete window[cb]; if(script.parentNode) script.parentNode.removeChild(script); }
+    window[cb]=function(data){ done=true; cleanup(); resolve(data); };
+    script.onerror=function(){ if(!done){ cleanup(); reject(new Error('JSONP error')); } };
+    script.src=url+(url.indexOf('?')>-1?'&':'?')+'callback='+cb;
+    document.body.appendChild(script);
+    setTimeout(function(){ if(!done){ cleanup(); reject(new Error('JSONP timeout')); } },15000);
+  });
+}
+
 // ── ESTADO ────────────────────────────────────────────────────────────────
 let cur = new Date(); cur.setHours(0,0,0,0);
 let pinOK = false, pinCB = null, nid = 1;
@@ -490,8 +505,7 @@ async function apiCall(payload){
     params.append('section',payload.section||'');
     if(payload.record) params.append('record',JSON.stringify(payload.record));
     if(payload.id!==undefined) params.append('id',payload.id);
-    const r=await fetch(GAS_URL+'?'+params.toString());
-    const data=await r.json();
+    const data=await jsonpRequest(GAS_URL+'?'+params.toString());
     if(data.ok) guardarLocal();
     return data;
   }catch(e){ toast('Sin conexión — guardado local','error'); return{ok:false}; }
@@ -503,8 +517,7 @@ async function cargarDatos(){
   if(!GAS_OK){ if(!hayLocal){actualizarFechas();renderRegistro();} return; }
   showLoader('Sincronizando con Google Sheets...');
   try{
-    const r=await fetch(GAS_URL+'?action=getAll');
-    const data=await r.json();
+    const data=await jsonpRequest(GAS_URL+'?action=getAll');
     if(data&&typeof data==='object'){
       if(Array.isArray(data.estudios)){
         DB.estudios=data.estudios.map(rec=>{
