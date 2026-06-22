@@ -55,7 +55,6 @@ input,select,textarea{padding:7px 10px;border:1px solid var(--gris3);border-radi
 input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(46,58,78,.12)}
 .section-lbl{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gris4);padding:12px 0 8px;border-bottom:1px solid var(--gris2);margin-bottom:10px}
 .form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;padding-top:12px;border-top:1px solid var(--gris2);flex-wrap:wrap}
-/* Tipo estudio chips */
 .tipo-rayosx{background:#E8EAF0;color:#1C2331;border:1.5px solid #9CA3AF;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-us{background:#E1F5FE;color:#0E7490;border:1.5px solid #7DD3FC;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-tac{background:var(--naranja3);color:var(--naranja);border:1.5px solid #FCA974;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
@@ -65,11 +64,9 @@ input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(46,
 .tipo-arcoc{background:#D1FAE5;color:#065F46;border:1.5px solid #6EE7B7;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-rxport{background:#F0FDF4;color:#166534;border:1.5px solid #86EFAC;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
 .tipo-rxesp{background:#FEF3C7;color:#92400E;border:1.5px solid #FCD34D;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700}
-/* Urgencia chips */
 .urg-urgente{background:var(--rojo3);color:var(--rojo);border:1.5px solid #F5A49A;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700}
 .urg-programado{background:var(--verde3);color:var(--verde);border:1.5px solid #86EFAC;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700}
 .urg-sincita{background:#F0F9FF;color:#0369A1;border:1.5px solid #7DD3FC;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700}
-/* Tipo selector buttons */
 .tipo-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:4px}
 .tipo-btn{padding:9px 6px;border-radius:8px;border:2px solid;cursor:pointer;font-family:inherit;font-size:11px;font-weight:600;text-align:center;transition:all .15s;line-height:1.3}
 .tipo-btn.rxb{border-color:#9CA3AF;color:#1C2331;background:#E8EAF0}
@@ -82,7 +79,6 @@ input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(46,
 .tipo-btn.rxeb{border-color:#FCD34D;color:#92400E;background:#FEF3C7}
 .tipo-btn.selected{opacity:1;transform:scale(1.04);box-shadow:0 0 0 3px currentColor}
 .tipo-btn:not(.selected){opacity:.5}
-/* Urgencia buttons */
 .urg-btns{display:flex;gap:8px;margin-top:4px}
 .urg-btn{flex:1;padding:8px;border-radius:8px;border:2px solid;cursor:pointer;font-family:inherit;font-size:12px;font-weight:600;text-align:center;transition:all .15s}
 .urg-btn.urgente{border-color:var(--rojo2);color:var(--rojo);background:var(--rojo3)}
@@ -90,12 +86,10 @@ input:focus,select:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(46,
 .urg-btn.sincita{border-color:#7DD3FC;color:#0369A1;background:#F0F9FF}
 .urg-btn.selected{opacity:1;transform:scale(1.03);box-shadow:0 0 0 3px currentColor}
 .urg-btn:not(.selected){opacity:.5}
-/* Estado chips */
 .estado-solicitado{background:#ECEEF1;color:#1C2331;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
 .estado-proceso{background:var(--amarillo3);color:var(--amarillo);padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
 .estado-realizado{background:var(--verde3);color:var(--verde);padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
 .estado-reportado{background:var(--morado3);color:var(--morado);padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600}
-/* Table */
 .table-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:12px}
 thead th{background:var(--gris1);padding:7px 10px;text-align:left;font-weight:600;font-size:10px;color:var(--gris5);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--gris2);white-space:nowrap;position:sticky;top:0}
@@ -104,13 +98,11 @@ tbody tr:hover{background:var(--gris0)}
 tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
 .add-row-btn{width:100%;padding:10px;background:var(--gris0);border:none;border-top:1px solid var(--gris2);cursor:pointer;font-family:inherit;font-size:12px;color:var(--gris4);border-radius:0 0 8px 8px}
 .add-row-btn:hover{background:var(--gris1)}
-/* Stats */
 .stats-grid{display:grid;gap:10px;margin-bottom:14px}
 .stat-card{background:#fff;border:1px solid var(--gris2);border-radius:var(--r);padding:12px 14px;box-shadow:var(--shadow)}
 .stat-lbl{font-size:10px;font-weight:600;color:var(--gris4);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
 .stat-val{font-size:26px;font-weight:600;line-height:1}
 .stat-sub{font-size:10px;color:var(--gris4);margin-top:3px}
-/* Indicadores */
 .ind-card{background:#fff;border:1px solid var(--gris2);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow)}
 .ind-hdr{display:flex;align-items:center;gap:7px;margin-bottom:8px}
 .ind-dot{width:8px;height:8px;border-radius:50%}
@@ -123,7 +115,6 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
 .ind-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .ind-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
 .group-title{font-size:11px;font-weight:700;color:var(--gris6);text-transform:uppercase;letter-spacing:.06em;padding:10px 0 6px;border-bottom:2px solid var(--gris2);margin-bottom:10px;grid-column:1/-1}
-/* Modal */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center;z-index:200}
 .modal-bg.open{display:flex}
 .modal{background:#fff;border-radius:18px 18px 0 0;padding:20px;width:100%;max-width:820px;max-height:92vh;overflow-y:auto}
@@ -131,10 +122,8 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
 .modal-handle{width:36px;height:4px;background:var(--gris3);border-radius:2px;margin:0 auto 14px}
 .modal-title{font-size:15px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
 .modal-close{background:none;border:none;cursor:pointer;color:var(--gris4);font-size:22px;line-height:1}
-/* PIN */
 .pin-modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:500}
 .pin-modal.open{display:flex}
-/* Toast */
 .toast{position:fixed;bottom:22px;right:22px;background:var(--gris7);color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;font-weight:500;box-shadow:0 4px 12px rgba(0,0,0,.2);transform:translateY(70px);opacity:0;transition:all .25s cubic-bezier(.34,1.56,.64,1);z-index:999;max-width:300px}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.success{background:var(--verde)}
@@ -179,7 +168,7 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
   </div>
 </div>
 
-<!-- ===================== PÁGINA: REGISTRO DIARIO ===================== -->
+<!-- PÁGINA: REGISTRO DIARIO -->
 <div class="page active" id="page-registro">
   <div class="top-bar">
     <div class="date-nav">
@@ -213,7 +202,7 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
   </div>
 </div>
 
-<!-- ===================== PÁGINA: CONCENTRADO ===================== -->
+<!-- PÁGINA: CONCENTRADO -->
 <div class="page" id="page-concentrado">
   <div class="top-bar" style="justify-content:space-between">
     <div style="font-size:16px;font-weight:600;color:var(--gris7)">Concentrado Mensual</div>
@@ -232,7 +221,7 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
   <div id="concentrado-body"></div>
 </div>
 
-<!-- ===================== MODAL ESTUDIO ===================== -->
+<!-- MODAL ESTUDIO -->
 <div class="modal-bg" id="modalEstudio" onclick="if(event.target===this)closeModal('modalEstudio')">
   <div class="modal"><div class="modal-handle"></div><div id="modalEstudioContent"></div></div>
 </div>
@@ -240,167 +229,89 @@ tbody td{padding:8px 10px;color:var(--gris6);vertical-align:middle}
 <div class="toast" id="toast"></div>
 
 <script>
-// ── CONFIGURACIÓN ─────────────────────────────────────────────────────────
+// ── CONFIGURACIÓN ──────────────────────────────────────────────────────────
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbx2oWmOzxUBT37TrODXrAw1EekRVFkMK5L4TmHdqxnf7uFQcSeVv4YJmr-SOzBh2wqS/exec';
-const PIN = 'IMG1'; // Cambia este PIN
+const PIN = 'IMG1';
 const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
 const TIPOS_ESTUDIO = {
-  'Rayos X':       { clase:'tipo-rayosx', btnClase:'rxb',   icon:'🦴', color:'#1C2331' },
-  'Ultrasonido':   { clase:'tipo-us',     btnClase:'usb',   icon:'〰️', color:'#0E7490' },
-  'TAC':           { clase:'tipo-tac',    btnClase:'tacb',  icon:'🌀', color:'#9A3412' },
-  'Mastografía':   { clase:'tipo-masto',  btnClase:'mastob',icon:'🔬', color:'#6B21A8' },
-  'Biopsias':      { clase:'tipo-biopsia',btnClase:'biob',  icon:'🩸', color:'#991B1B' },
-  'Arco en C':     { clase:'tipo-arcoc',  btnClase:'arcob', icon:'⚡', color:'#065F46' },
-  'Rx Portátil':   { clase:'tipo-rxport', btnClase:'rxpb',  icon:'📱', color:'#166534' },
-  'Rx Especial':   { clase:'tipo-rxesp',  btnClase:'rxeb',  icon:'✨', color:'#92400E' },
+  'Rayos X':     { clase:'tipo-rayosx', btnClase:'rxb',   icon:'🦴', color:'#1C2331' },
+  'Ultrasonido': { clase:'tipo-us',     btnClase:'usb',   icon:'〰️', color:'#0E7490' },
+  'TAC':         { clase:'tipo-tac',    btnClase:'tacb',  icon:'🌀', color:'#9A3412' },
+  'Mastografía': { clase:'tipo-masto',  btnClase:'mastob',icon:'🔬', color:'#6B21A8' },
+  'Biopsias':    { clase:'tipo-biopsia',btnClase:'biob',  icon:'🩸', color:'#991B1B' },
+  'Arco en C':   { clase:'tipo-arcoc',  btnClase:'arcob', icon:'⚡', color:'#065F46' },
+  'Rx Portátil': { clase:'tipo-rxport', btnClase:'rxpb',  icon:'📱', color:'#166534' },
+  'Rx Especial': { clase:'tipo-rxesp',  btnClase:'rxeb',  icon:'✨', color:'#92400E' },
 };
 
-const ESTUDIOS_ESPECIALES = [
-  'Histerosalpingografía','Biopsia guiada por US','Biopsia guiada por TAC',
-  'Articulografía','Urografía','Colangiografía','Otro especial'
-];
-
-// Catálogo de estudios por tipo (con opciones de medio de contraste)
 const CATALOGO = {
   'Rayos X': [
-    'Tórax proyección posteroanterior',
-    'Tórax proyección anteroposterior portátil',
-    'Tórax proyección lateral',
-    'Abdomen simple',
-    'Abdomen de pie',
-    'Columna cervical anteroposterior y lateral',
-    'Columna lumbar anteroposterior y lateral',
-    'Columna dorsal anteroposterior y lateral',
-    'Pelvis anteroposterior',
-    'Cadera anteroposterior y lateral',
-    'Rodilla anteroposterior y lateral',
-    'Tobillo anteroposterior y lateral',
-    'Pie anteroposterior, lateral y oblicua',
-    'Mano anteroposterior y oblicua',
-    'Muñeca anteroposterior y lateral',
-    'Antebrazo anteroposterior y lateral',
-    'Codo anteroposterior y lateral',
-    'Húmero anteroposterior y lateral',
-    'Hombro anteroposterior',
-    'Clavícula anteroposterior',
-    'Cráneo anteroposterior y lateral',
-    'Senos paranasales proyección Waters',
-    'Mandíbula anteroposterior y lateral',
-    'Ortopantomografía',
-    'Urograma excretor con medio de contraste intravenoso',
-    'Colon por enema con medio de contraste oral y rectal',
-    'Esófago gastroduodenal con medio de contraste oral',
+    'Tórax proyección posteroanterior','Tórax proyección anteroposterior portátil','Tórax proyección lateral',
+    'Abdomen simple','Abdomen de pie','Columna cervical anteroposterior y lateral','Columna lumbar anteroposterior y lateral',
+    'Columna dorsal anteroposterior y lateral','Pelvis anteroposterior','Cadera anteroposterior y lateral',
+    'Rodilla anteroposterior y lateral','Tobillo anteroposterior y lateral','Pie anteroposterior, lateral y oblicua',
+    'Mano anteroposterior y oblicua','Muñeca anteroposterior y lateral','Antebrazo anteroposterior y lateral',
+    'Codo anteroposterior y lateral','Húmero anteroposterior y lateral','Hombro anteroposterior','Clavícula anteroposterior',
+    'Cráneo anteroposterior y lateral','Senos paranasales proyección Waters','Mandíbula anteroposterior y lateral',
+    'Ortopantomografía','Urograma excretor con medio de contraste intravenoso',
+    'Colon por enema con medio de contraste oral y rectal','Esófago gastroduodenal con medio de contraste oral',
     'Serie gastroduodenal con medio de contraste oral',
   ],
   'Ultrasonido': [
-    'Ultrasonido de abdomen superior',
-    'Ultrasonido de abdomen inferior',
-    'Ultrasonido de abdomen completo',
-    'Ultrasonido pélvico transabdominal',
-    'Ultrasonido pélvico transvaginal',
-    'Ultrasonido obstétrico primer trimestre',
-    'Ultrasonido obstétrico segundo trimestre',
-    'Ultrasonido obstétrico tercer trimestre',
-    'Ultrasonido de tiroides',
-    'Ultrasonido de mama bilateral',
-    'Ultrasonido testicular bilateral',
-    'Ultrasonido renal y vías urinarias',
-    'Ultrasonido hepático',
-    'Ultrasonido vesicular',
-    'Ultrasonido de tejidos blandos',
-    'Ultrasonido Doppler vascular periférico',
-    'Ultrasonido Doppler renal',
-    'Ultrasonido Doppler obstétrico',
-    'Ultrasonido cervical ganglionar',
-    'Ultrasonido guía para procedimiento',
+    'Ultrasonido de abdomen superior','Ultrasonido de abdomen inferior','Ultrasonido de abdomen completo',
+    'Ultrasonido pélvico transabdominal','Ultrasonido pélvico transvaginal','Ultrasonido obstétrico primer trimestre',
+    'Ultrasonido obstétrico segundo trimestre','Ultrasonido obstétrico tercer trimestre','Ultrasonido de tiroides',
+    'Ultrasonido de mama bilateral','Ultrasonido testicular bilateral','Ultrasonido renal y vías urinarias',
+    'Ultrasonido hepático','Ultrasonido vesicular','Ultrasonido de tejidos blandos',
+    'Ultrasonido Doppler vascular periférico','Ultrasonido Doppler renal','Ultrasonido Doppler obstétrico',
+    'Ultrasonido cervical ganglionar','Ultrasonido guía para procedimiento',
   ],
   'TAC': [
-    'Tomografía de cráneo simple',
-    'Tomografía de cráneo con medio de contraste intravenoso',
-    'Tomografía de cráneo simple y con medio de contraste intravenoso',
-    'Tomografía de tórax simple',
-    'Tomografía de tórax con medio de contraste intravenoso',
-    'Tomografía de tórax simple y con medio de contraste intravenoso',
-    'Tomografía de abdomen y pelvis simple',
-    'Tomografía de abdomen y pelvis con medio de contraste intravenoso',
+    'Tomografía de cráneo simple','Tomografía de cráneo con medio de contraste intravenoso',
+    'Tomografía de cráneo simple y con medio de contraste intravenoso','Tomografía de tórax simple',
+    'Tomografía de tórax con medio de contraste intravenoso','Tomografía de tórax simple y con medio de contraste intravenoso',
+    'Tomografía de abdomen y pelvis simple','Tomografía de abdomen y pelvis con medio de contraste intravenoso',
     'Tomografía de abdomen y pelvis con medio de contraste oral e intravenoso',
-    'Tomografía de abdomen y pelvis simple y con medio de contraste',
-    'Tomografía de columna cervical',
-    'Tomografía de columna dorsal',
-    'Tomografía de columna lumbar',
-    'Tomografía de pelvis simple',
-    'Tomografía de pelvis con medio de contraste intravenoso',
-    'Tomografía de macizo facial',
-    'Tomografía de senos paranasales',
-    'Tomografía de cuello simple',
-    'Tomografía de cuello con medio de contraste intravenoso',
-    'Tomografía de tórax abdomen y pelvis simple',
-    'Tomografía de tórax abdomen y pelvis con medio de contraste intravenoso',
-    'Angiotomografía pulmonar para tromboembolismo pulmonar',
-    'Angiotomografía de aorta',
-    'Angiotomografía coronaria',
-    'Tomografía de extremidades',
-    'Urografía por tomografía',
+    'Tomografía de abdomen y pelvis simple y con medio de contraste','Tomografía de columna cervical',
+    'Tomografía de columna dorsal','Tomografía de columna lumbar','Tomografía de pelvis simple',
+    'Tomografía de pelvis con medio de contraste intravenoso','Tomografía de macizo facial',
+    'Tomografía de senos paranasales','Tomografía de cuello simple','Tomografía de cuello con medio de contraste intravenoso',
+    'Tomografía de tórax abdomen y pelvis simple','Tomografía de tórax abdomen y pelvis con medio de contraste intravenoso',
+    'Angiotomografía pulmonar para tromboembolismo pulmonar','Angiotomografía de aorta','Angiotomografía coronaria',
+    'Tomografía de extremidades','Urografía por tomografía',
   ],
   'Mastografía': [
-    'Mastografía bilateral',
-    'Mastografía unilateral derecha',
-    'Mastografía unilateral izquierda',
-    'Mastografía de seguimiento',
-    'Mastografía con spot de compresión',
-    'Mastografía con magnificación',
+    'Mastografía bilateral','Mastografía unilateral derecha','Mastografía unilateral izquierda',
+    'Mastografía de seguimiento','Mastografía con spot de compresión','Mastografía con magnificación',
     'Mastografía más ultrasonido de mama',
   ],
   'Biopsias': [
-    'Biopsia de mama guiada por ultrasonido',
-    'Biopsia de mama guiada por mastografía con estereotaxia',
-    'Biopsia de nódulo tiroideo guiada por ultrasonido',
-    'Biopsia hepática guiada por ultrasonido',
-    'Biopsia renal guiada por ultrasonido',
-    'Biopsia de ganglio guiada por ultrasonido',
-    'Biopsia de tejidos blandos guiada por ultrasonido',
-    'Biopsia ósea guiada por tomografía',
-    'Biopsia pulmonar guiada por tomografía',
-    'Biopsia hepática guiada por tomografía',
+    'Biopsia de mama guiada por ultrasonido','Biopsia de mama guiada por mastografía con estereotaxia',
+    'Biopsia de nódulo tiroideo guiada por ultrasonido','Biopsia hepática guiada por ultrasonido',
+    'Biopsia renal guiada por ultrasonido','Biopsia de ganglio guiada por ultrasonido',
+    'Biopsia de tejidos blandos guiada por ultrasonido','Biopsia ósea guiada por tomografía',
+    'Biopsia pulmonar guiada por tomografía','Biopsia hepática guiada por tomografía',
     'Biopsia retroperitoneal guiada por tomografía',
   ],
   'Arco en C': [
-    'Reducción de fractura con Arco en C',
-    'Colocación de clavo intramedular con Arco en C',
-    'Artrodesis con Arco en C',
-    'Colocación de tornillos pediculares con Arco en C',
-    'Colocación de catéter central guiado con Arco en C',
-    'Drenaje de colección guiado con Arco en C',
-    'Procedimiento ortopédico con Arco en C',
-    'Fluoroscopía intraoperatoria',
+    'Reducción de fractura con Arco en C','Colocación de clavo intramedular con Arco en C',
+    'Artrodesis con Arco en C','Colocación de tornillos pediculares con Arco en C',
+    'Colocación de catéter central guiado con Arco en C','Drenaje de colección guiado con Arco en C',
+    'Procedimiento ortopédico con Arco en C','Fluoroscopía intraoperatoria',
   ],
   'Rx Portátil': [
-    'Radiografía de tórax portátil anteroposterior',
-    'Radiografía de abdomen portátil anteroposterior',
-    'Radiografía de pelvis portátil',
-    'Radiografía de extremidad portátil',
-    'Radiografía de cráneo portátil',
-    'Radiografía de columna portátil',
-    'Radiografía de tórax portátil en unidad de cuidados intensivos',
-    'Radiografía de tórax portátil en urgencias',
-    'Radiografía de tórax portátil en quirófano',
+    'Radiografía de tórax portátil anteroposterior','Radiografía de abdomen portátil anteroposterior',
+    'Radiografía de pelvis portátil','Radiografía de extremidad portátil','Radiografía de cráneo portátil',
+    'Radiografía de columna portátil','Radiografía de tórax portátil en unidad de cuidados intensivos',
+    'Radiografía de tórax portátil en urgencias','Radiografía de tórax portátil en quirófano',
   ],
   'Rx Especial': [
-    'Histerosalpingografía con medio de contraste',
-    'Urografía excretora con medio de contraste intravenoso',
-    'Colon por enema con medio de contraste rectal',
-    'Esófago con medio de contraste oral',
-    'Tránsito intestinal con medio de contraste oral',
-    'Articulografía con medio de contraste intraarticular',
-    'Fistulografía con medio de contraste',
-    'Sialografía',
-    'Dacriocistografía',
-    'Broncografía',
-    'Colangiografía percutánea transhepática',
-    'Colangiografía transoperatoria',
-    'Mielograma',
-    'Otro estudio especial',
+    'Histerosalpingografía con medio de contraste','Urografía excretora con medio de contraste intravenoso',
+    'Colon por enema con medio de contraste rectal','Esófago con medio de contraste oral',
+    'Tránsito intestinal con medio de contraste oral','Articulografía con medio de contraste intraarticular',
+    'Fistulografía con medio de contraste','Sialografía','Dacriocistografía','Broncografía',
+    'Colangiografía percutánea transhepática','Colangiografía transoperatoria','Mielograma','Otro estudio especial',
   ],
 };
 
@@ -415,9 +326,7 @@ const CONTRASTE_OPTS = [
   'Con medio de contraste vía no especificada',
 ];
 
-const SERVICIOS = [
-  'Externo','Urgencias','Hospitalización','UCI/UCIM','Quirófano'
-];
+const SERVICIOS = ['Externo','Urgencias','Hospitalización','UCI/UCIM','Quirófano'];
 
 const RADIOLOGOS = [
   'Dra. Karla Adelaida López Rodríguez',
@@ -427,11 +336,9 @@ const RADIOLOGOS = [
   'Dr. Jesús Héctor Salinas Sepúlveda',
 ];
 
-const ESTADOS = ['Solicitado','En proceso','Realizado','Reportado'];
-
 const GAS_OK = GAS_URL.indexOf('TU_URL') === -1;
 
-// ── JSONP HELPER (evita el bloqueo CORS de fetch al hablar con Apps Script) ─
+// ── JSONP ──────────────────────────────────────────────────────────────────
 function jsonpRequest(url){
   return new Promise((resolve,reject)=>{
     const cb='jsonp_cb_'+Date.now()+'_'+Math.floor(Math.random()*100000);
@@ -446,12 +353,12 @@ function jsonpRequest(url){
   });
 }
 
-// ── ESTADO ────────────────────────────────────────────────────────────────
+// ── ESTADO ─────────────────────────────────────────────────────────────────
 let cur = new Date(); cur.setHours(0,0,0,0);
 let pinOK = false, pinCB = null, nid = 1;
 let DB = { estudios: [] };
 
-// ── UTILERÍAS ─────────────────────────────────────────────────────────────
+// ── UTILIDADES ─────────────────────────────────────────────────────────────
 function dk(d){ if(typeof d==='string') d=new Date(d+'T12:00:00'); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function fmt(d){ const days=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']; const m=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']; return days[d.getDay()]+', '+d.getDate()+' de '+m[d.getMonth()]+' de '+d.getFullYear(); }
 function toast(msg,tipo){ const t=document.getElementById('toast'); t.textContent=msg; t.className='toast show '+(tipo||'success'); setTimeout(()=>t.className='toast',3000); }
@@ -460,7 +367,6 @@ function showLoader(m){ let el=document.getElementById('lb'); if(!el){el=documen
 function hideLoader(){ const el=document.getElementById('lb'); if(el) el.style.display='none'; }
 function minEntre(h1,h2){ if(!h1||!h2) return null; const p1=h1.split(':').map(Number),p2=h2.split(':').map(Number); const diff=(p2[0]*60+p2[1])-(p1[0]*60+p1[1]); return diff>=0?diff:diff+1440; }
 function fmtMin(m){ if(m===null||m===undefined) return '-'; const h=Math.floor(m/60),min=m%60; return h>0?(h+'h '+min+'m'):(min+'m'); }
-function calcEdad(fnac){ if(!fnac) return ''; const n=new Date(fnac+'T12:00'),h=new Date(); let e=h.getFullYear()-n.getFullYear(); if(h.getMonth()-n.getMonth()<0||(h.getMonth()-n.getMonth()===0&&h.getDate()<n.getDate())) e--; return e>=0?e:''; }
 
 function tipoChip(tipo){
   if(!tipo) return '-';
@@ -474,76 +380,104 @@ function urgChip(u){
   if(u==='Sin cita') return '<span class="urg-sincita">🔵 Sin cita</span>';
   return '<span class="urg-programado">🟢 Programado</span>';
 }
-function estadoChip(e){
-  if(!e) return '-';
-  const m={'Solicitado':'estado-solicitado','En proceso':'estado-proceso','Realizado':'estado-realizado','Reportado':'estado-reportado'};
-  return '<span class="'+(m[e]||'')+'">'+e+'</span>';
-}
 
-// ── PIN ───────────────────────────────────────────────────────────────────
+// ── PIN ────────────────────────────────────────────────────────────────────
 function requirePin(cb){ if(pinOK){cb();return;} pinCB=cb; document.getElementById('pinInput').value=''; document.getElementById('pinError').textContent=''; document.getElementById('pinModal').classList.add('open'); setTimeout(()=>document.getElementById('pinInput').focus(),100); }
 function verifyPin(){ if(document.getElementById('pinInput').value===PIN){ pinOK=true; document.getElementById('pinModal').classList.remove('open'); document.getElementById('modeLabel').textContent='Editor ✏️'; document.getElementById('modeLabel').style.background='rgba(255,255,255,.25)'; document.getElementById('lockBtn').textContent='Salir'; toast('Modo edición activado'); if(pinCB){pinCB();pinCB=null;} } else { document.getElementById('pinError').textContent='PIN incorrecto'; document.getElementById('pinInput').value=''; } }
 function closePinModal(){ document.getElementById('pinModal').classList.remove('open'); pinCB=null; }
 function toggleLock(){ if(pinOK){ pinOK=false; document.getElementById('modeLabel').textContent='Solo lectura 🔒'; document.getElementById('modeLabel').style.background='rgba(255,255,255,.2)'; document.getElementById('lockBtn').textContent='PIN'; toast('Modo solo lectura'); } else requirePin(()=>{}); }
 
-// ── NAVEGACIÓN ────────────────────────────────────────────────────────────
+// ── NAVEGACIÓN ─────────────────────────────────────────────────────────────
 function showPage(id,btn){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active')); document.getElementById('page-'+id).classList.add('active'); if(btn)btn.classList.add('active'); actualizarFechas(); if(id==='registro') renderRegistro(); if(id==='concentrado') renderConcentrado(); }
 function cambiarDia(d){ cur.setDate(cur.getDate()+d); actualizarFechas(); renderRegistro(); }
 function actualizarFechas(){ document.getElementById('dateLabel').textContent=fmt(cur); }
 
-// ── PERSISTENCIA ──────────────────────────────────────────────────────────
-function guardarLocal(){ try{ localStorage.setItem('img_v1',JSON.stringify({db:DB,nid:nid})); }catch(e){} }
-function cargarLocal(){ try{ const r=localStorage.getItem('img_v1'); if(!r) return false; const p=JSON.parse(r); if(p.db&&Array.isArray(p.db.estudios)) DB.estudios=p.db.estudios; if(p.nid) nid=p.nid; return true; }catch(e){ return false; } }
-function recalcNid(){ const ids=DB.estudios.map(x=>Number(x.id)||0); nid=ids.length?Math.max(...ids)+1:1; }
+// ── PERSISTENCIA ───────────────────────────────────────────────────────────
+function guardarLocal(){
+  try{
+    localStorage.setItem('img_v1', JSON.stringify({ db: DB, nid: nid }));
+  } catch(e){ console.error('Error al guardar en localStorage:', e); }
+}
+
+function cargarLocal(){
+  try{
+    const r = localStorage.getItem('img_v1');
+    if(!r) return false;
+    const p = JSON.parse(r);
+    if(p.db && Array.isArray(p.db.estudios)) DB.estudios = p.db.estudios;
+    if(p.nid) nid = p.nid;
+    return true;
+  } catch(e){ return false; }
+}
+
+function recalcNid(){
+  const ids = DB.estudios.map(x => Number(x.id)||0);
+  nid = ids.length ? Math.max(...ids)+1 : 1;
+}
 
 async function apiCall(payload){
+  // FIX: guardar local ANTES de llamar al API, así no se pierde si hay timeout
   guardarLocal();
-  if(!GAS_OK) return {ok:true};
+  if(!GAS_OK) return { ok: true };
   try{
-    const params=new URLSearchParams();
-    params.append('action',payload.action);
-    params.append('section',payload.section||'');
-    if(payload.record) params.append('record',JSON.stringify(payload.record));
-    if(payload.id!==undefined) params.append('id',payload.id);
-    const data=await jsonpRequest(GAS_URL+'?'+params.toString());
-    if(data.ok) guardarLocal();
+    const params = new URLSearchParams();
+    params.append('action', payload.action);
+    params.append('section', payload.section||'');
+    if(payload.record) params.append('record', JSON.stringify(payload.record));
+    if(payload.id !== undefined) params.append('id', payload.id);
+    const data = await jsonpRequest(GAS_URL+'?'+params.toString());
     return data;
-  }catch(e){ toast('Sin conexión — guardado local','error'); return{ok:false}; }
+  } catch(e){
+    toast('Sin conexión — guardado localmente','error');
+    return { ok: false };
+  }
 }
 
 async function cargarDatos(){
-  const hayLocal=cargarLocal();
+  const hayLocal = cargarLocal();
   if(hayLocal){ recalcNid(); actualizarFechas(); renderRegistro(); }
-  if(!GAS_OK){ if(!hayLocal){actualizarFechas();renderRegistro();} return; }
+  if(!GAS_OK){ if(!hayLocal){ actualizarFechas(); renderRegistro(); } return; }
   showLoader('Sincronizando con Google Sheets...');
   try{
-    const data=await jsonpRequest(GAS_URL+'?action=getAll');
-    if(data&&typeof data==='object'){
+    const data = await jsonpRequest(GAS_URL+'?action=getAll');
+    if(data && typeof data === 'object'){
       if(Array.isArray(data.estudios)){
-        DB.estudios=data.estudios.map(rec=>{
-          ['fecha','fechaNac'].forEach(c=>{ if(rec[c]&&String(rec[c]).includes('T')) rec[c]=String(rec[c]).split('T')[0]; });
-          ['horaSolicitud','horaInicio','horaFin','horaReporte'].forEach(c=>{
-            if(rec[c]&&String(rec[c]).includes('T')){
-              const d=new Date(rec[c]);
-              rec[c]=String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0');
+        DB.estudios = data.estudios.map(rec => {
+          // Normalizar fechas
+          ['fecha','fechaNac'].forEach(c => {
+            if(rec[c] && String(rec[c]).includes('T')) rec[c] = String(rec[c]).split('T')[0];
+          });
+          // Normalizar horas
+          ['horaSolicitud','horaInicio','horaFin','horaReporte'].forEach(c => {
+            if(rec[c] && String(rec[c]).includes('T')){
+              const d = new Date(rec[c]);
+              rec[c] = String(d.getUTCHours()).padStart(2,'0')+':'+String(d.getUTCMinutes()).padStart(2,'0');
             }
           });
+          // FIX: asegurar que contraste siempre sea string válido
+          if(rec.contraste === undefined || rec.contraste === null){
+            rec.contraste = '— Sin medio de contraste —';
+          }
           return rec;
         });
       }
-      recalcNid(); guardarLocal();
+      recalcNid();
+      // FIX: guardar local inmediatamente después de sincronizar con Sheets
+      guardarLocal();
     }
-  }catch(e){ console.error(e); }
-  hideLoader(); actualizarFechas(); renderRegistro();
+  } catch(e){ console.error('Error al sincronizar:', e); }
+  hideLoader();
+  actualizarFechas();
+  renderRegistro();
 }
 
-// ── RENDER REGISTRO DIARIO ────────────────────────────────────────────────
+// ── RENDER REGISTRO DIARIO ─────────────────────────────────────────────────
 function renderRegistro(){
-  const hoy=dk(cur);
-  const data=DB.estudios.filter(r=>r.fecha===hoy).sort((a,b)=>(Number(a.num)||0)-(Number(b.num)||0));
-  const tbody=document.getElementById('reg-tbody');
-  const empty=document.getElementById('reg-empty');
-  document.getElementById('reg-count').textContent=data.length+' estudio'+(data.length!==1?'s':'');
+  const hoy = dk(cur);
+  const data = DB.estudios.filter(r => r.fecha === hoy).sort((a,b) => (Number(a.num)||0)-(Number(b.num)||0));
+  const tbody = document.getElementById('reg-tbody');
+  const empty = document.getElementById('reg-empty');
+  document.getElementById('reg-count').textContent = data.length+' estudio'+(data.length!==1?'s':'');
 
   const total=data.length;
   const rx=data.filter(r=>r.tipo==='Rayos X').length;
@@ -566,13 +500,14 @@ function renderRegistro(){
     '<div class="stat-card"><div class="stat-lbl">📱 Rx Portátil</div><div class="stat-val" style="color:#166534">'+rxport+'</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">✨ Rx Especial</div><div class="stat-val" style="color:#92400E">'+rxesp+'</div></div>';
 
-  if(!data.length){tbody.innerHTML='';empty.style.display='block';return;}
+  if(!data.length){ tbody.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
 
-  tbody.innerHTML=data.map(function(r){
-    const minEjecucion=minEntre(r.horaInicio,r.horaFin);
-    const isUrgente=r.prioridad==='Urgente';
-    const rowStyle=isUrgente?'border-left:3px solid var(--rojo2);':'';
+  tbody.innerHTML = data.map(function(r){
+    const isUrgente = r.prioridad === 'Urgente';
+    const rowStyle = isUrgente ? 'border-left:3px solid var(--rojo2);' : '';
+    // FIX: mostrar contraste correctamente desde los datos guardados
+    const tieneContraste = r.contraste && r.contraste.indexOf('Sin') === -1 && r.contraste !== '' && r.contraste !== '— Sin medio de contraste —';
     return '<tr onclick="requirePin(()=>abrirModal('+r.id+'))" style="'+rowStyle+'">'+
       '<td style="font-weight:600;color:var(--gris4)">'+(r.num||'-')+'</td>'+
       '<td style="font-size:11px">'+(r.fecha||'-')+'</td>'+
@@ -580,7 +515,7 @@ function renderRegistro(){
       '<td style="font-family:\'DM Mono\',monospace;font-size:11px">'+(r.horaFin||'-')+'</td>'+
       '<td>'+tipoChip(r.tipo)+'</td>'+
       '<td style="font-size:11px;max-width:140px">'+(r.estudio||'-')+'</td>'+
-      '<td style="font-size:10px;color:var(--gris5);max-width:120px">'+(r.contraste&&r.contraste.indexOf('Sin')===-1?'<span style="background:#FEF9C3;color:#92400E;border-radius:4px;padding:1px 5px;font-weight:600">'+r.contraste+'</span>':'-')+'</td>'+
+      '<td style="font-size:10px;color:var(--gris5);max-width:120px">'+(tieneContraste?'<span style="background:#FEF9C3;color:#92400E;border-radius:4px;padding:1px 5px;font-weight:600">'+r.contraste+'</span>':'-')+'</td>'+
       '<td>'+urgChip(r.prioridad)+'</td>'+
       '<td style="font-size:11px">'+(r.servicio||'-')+'</td>'+
       '<td style="font-size:11px">'+(r.tecnico||'-')+'</td>'+
@@ -591,19 +526,21 @@ function renderRegistro(){
   }).join('');
 }
 
-// ── MODAL FORMULARIO ──────────────────────────────────────────────────────
+// ── MODAL FORMULARIO ───────────────────────────────────────────────────────
 function abrirModal(id){
-  const rec=id?DB.estudios.find(r=>String(r.id)===String(id))||{}:{};
-  const tv=rec.tipo||'';
-  const uv=rec.prioridad||'';
+  const rec = id ? DB.estudios.find(r => String(r.id) === String(id)) || {} : {};
+  const tv = rec.tipo || '';
+  const uv = rec.prioridad || '';
 
-  const serviciosOpts=SERVICIOS.map(s=>'<option'+(rec.servicio===s?' selected':'')+'>'+s+'</option>').join('');
-  const contrasteOpts=CONTRASTE_OPTS.map(s=>'<option'+(rec.contraste===s?' selected':'')+'>'+s+'</option>').join('');
-  const radiologosOpts=['— Selecciona radiólogo —',...RADIOLOGOS].map(s=>'<option value="'+s+'"'+(rec.radiologo===s?' selected':'')+'>'+s+'</option>').join('');
+  // FIX: obtener el valor de contraste guardado; si no hay, usar el primero de la lista
+  const contrasteGuardado = rec.contraste || '— Sin medio de contraste —';
 
-  // Catálogo del tipo actual
-  const catalogoActual=tv&&CATALOGO[tv]?CATALOGO[tv]:[];
-  const catalogoOpts=['— Selecciona estudio —',...catalogoActual].map(s=>'<option value="'+s+'"'+(rec.estudio===s?' selected':'')+'>'+s+'</option>').join('');
+  const serviciosOpts = SERVICIOS.map(s => '<option'+(rec.servicio===s?' selected':'')+'>'+s+'</option>').join('');
+  const contrasteOpts = CONTRASTE_OPTS.map(s => '<option'+(contrasteGuardado===s?' selected':'')+'>'+s+'</option>').join('');
+  const radiologosOpts = ['— Selecciona radiólogo —',...RADIOLOGOS].map(s => '<option value="'+s+'"'+(rec.radiologo===s?' selected':'')+'>'+s+'</option>').join('');
+
+  const catalogoActual = tv && CATALOGO[tv] ? CATALOGO[tv] : [];
+  const catalogoOpts = ['— Selecciona estudio —',...catalogoActual].map(s => '<option value="'+s+'"'+(rec.estudio===s?' selected':'')+'>'+s+'</option>').join('');
 
   document.getElementById('modalEstudioContent').innerHTML=
     '<div class="modal-title">'+(id?'Editar estudio':'Nuevo estudio — Imagenología')+
@@ -617,7 +554,6 @@ function abrirModal(id){
     '</div>'+
     '<input type="hidden" id="f-tipo" value="'+tv+'">'+
 
-    // Estudio: desplegable del catálogo + campo libre
     '<div id="f-estudio-wrap" style="margin-top:10px;'+(tv?'':'display:none')+'">'+
     '<div class="form-grid" style="align-items:end">'+
     '<div class="form-group"><label>Estudio</label>'+
@@ -625,6 +561,7 @@ function abrirModal(id){
     '<div class="form-group"><label>Descripción personalizada (opcional)</label>'+
     '<input id="f-estudio-libre" value="'+(rec.estudio||'')+'" placeholder="O escribe aquí libremente"></div>'+
     '</div>'+
+    // FIX: el select de contraste SIEMPRE queda visible, fuera de ningún bloque condicional de display
     '<div class="form-group" style="margin-top:8px"><label>Medio de contraste</label>'+
     '<select id="f-contraste">'+contrasteOpts+'</select></div>'+
     '</div>'+
@@ -663,152 +600,178 @@ function abrirModal(id){
 }
 
 function syncEstudioLibre(val){
-  const libre=document.getElementById('f-estudio-libre');
-  if(libre && val && val!=='— Selecciona estudio —') libre.value=val;
+  const libre = document.getElementById('f-estudio-libre');
+  if(libre && val && val !== '— Selecciona estudio —') libre.value = val;
 }
 
-function selTipo(val,btn){
-  document.getElementById('f-tipo').value=val;
-  document.querySelectorAll('.tipo-btn').forEach(b=>b.classList.remove('selected'));
+function selTipo(val, btn){
+  document.getElementById('f-tipo').value = val;
+  document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
-  // Mostrar sección estudio
-  const wrap=document.getElementById('f-estudio-wrap');
-  if(wrap) wrap.style.display=val?'block':'none';
-  // Actualizar catálogo
-  const sel=document.getElementById('f-estudio-sel');
+  const wrap = document.getElementById('f-estudio-wrap');
+  if(wrap) wrap.style.display = val ? 'block' : 'none';
+  const sel = document.getElementById('f-estudio-sel');
   if(sel){
-    const lista=val&&CATALOGO[val]?CATALOGO[val]:[];
-    sel.innerHTML=['— Selecciona estudio —',...lista].map(s=>'<option value="'+s+'">'+s+'</option>').join('');
+    const lista = val && CATALOGO[val] ? CATALOGO[val] : [];
+    sel.innerHTML = ['— Selecciona estudio —',...lista].map(s => '<option value="'+s+'">'+s+'</option>').join('');
   }
 }
-function selUrg(val,btn){
-  document.getElementById('f-prioridad').value=val;
-  document.querySelectorAll('.urg-btn').forEach(b=>b.classList.remove('selected'));
+
+function selUrg(val, btn){
+  document.getElementById('f-prioridad').value = val;
+  document.querySelectorAll('.urg-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
 }
 
 async function guardarEstudio(id){
-  const tipo=document.getElementById('f-tipo').value;
-  // Estudio: preferir texto libre si existe, si no usar el desplegable
-  const libre=(document.getElementById('f-estudio-libre')?.value||'').trim();
-  const sel=document.getElementById('f-estudio-sel')?.value||'';
-  const estudio=libre&&libre!=='— Selecciona estudio —'?libre:(sel!=='— Selecciona estudio —'?sel:'');
-  const hinicio=document.getElementById('f-hinicio').value;
-  const hfin=document.getElementById('f-hfin').value;
-  const contraste=document.getElementById('f-contraste')?.value||'';
+  const tipo = document.getElementById('f-tipo').value;
+  const libre = (document.getElementById('f-estudio-libre')?.value || '').trim();
+  const sel = document.getElementById('f-estudio-sel')?.value || '';
+  const estudio = libre && libre !== '— Selecciona estudio —' ? libre : (sel !== '— Selecciona estudio —' ? sel : '');
+  const hinicio = document.getElementById('f-hinicio').value;
+  const hfin = document.getElementById('f-hfin').value;
 
-  const d={
-    id:id||nid++,
-    num:(function(){ const f=document.getElementById('f-fecha').value; const n=DB.estudios.filter(r=>r.fecha===f).length+(id?0:1); return id?(DB.estudios.find(r=>String(r.id)===String(id))||{}).num||n:n; }()),
-    fecha:document.getElementById('f-fecha').value,
-    horaInicio:hinicio,
-    horaFin:hfin,
-    minEjecucion:minEntre(hinicio,hfin),
-    tipo:tipo,
-    estudio:estudio,
-    contraste:contraste,
-    prioridad:document.getElementById('f-prioridad').value,
-    servicio:document.getElementById('f-servicio').value,
-    tecnico:document.getElementById('f-tecnico').value.trim(),
-    radiologo:(document.getElementById('f-radiologo')?.value||'').replace('— Selecciona radiólogo —','').trim(),
-    medicoSolicitante:document.getElementById('f-solicitante').value.trim(),
-    observaciones:document.getElementById('f-obs').value.trim(),
+  // FIX: leer contraste de forma segura; el select siempre existe en el DOM
+  // cuando f-estudio-wrap está visible (si hay tipo seleccionado)
+  const contrasteEl = document.getElementById('f-contraste');
+  const contraste = contrasteEl ? contrasteEl.value : '— Sin medio de contraste —';
+
+  const fechaVal = document.getElementById('f-fecha').value;
+
+  const d = {
+    id: id || nid++,
+    num: (function(){
+      if(id){
+        const existing = DB.estudios.find(r => String(r.id) === String(id));
+        return existing ? existing.num : DB.estudios.filter(r => r.fecha === fechaVal).length;
+      }
+      return DB.estudios.filter(r => r.fecha === fechaVal).length + 1;
+    }()),
+    fecha: fechaVal,
+    horaInicio: hinicio,
+    horaFin: hfin,
+    minEjecucion: minEntre(hinicio, hfin),
+    tipo: tipo,
+    estudio: estudio,
+    contraste: contraste,  // FIX: siempre guardado explícitamente
+    prioridad: document.getElementById('f-prioridad').value,
+    servicio: document.getElementById('f-servicio').value,
+    tecnico: document.getElementById('f-tecnico').value.trim(),
+    radiologo: (document.getElementById('f-radiologo')?.value || '').replace('— Selecciona radiólogo —','').trim(),
+    medicoSolicitante: document.getElementById('f-solicitante').value.trim(),
+    observaciones: document.getElementById('f-obs').value.trim(),
   };
 
-  if(id){ const i=DB.estudios.findIndex(r=>String(r.id)===String(id)); if(i>-1) DB.estudios[i]=d; }
-  else DB.estudios.push(d);
+  if(id){
+    const i = DB.estudios.findIndex(r => String(r.id) === String(id));
+    if(i > -1) DB.estudios[i] = d;
+  } else {
+    DB.estudios.push(d);
+  }
+
+  // FIX: guardar en localStorage INMEDIATAMENTE antes de cualquier await
+  // Así, aunque falle la conexión con Google Sheets, los datos quedan seguros
+  guardarLocal();
+
   showLoader('Guardando...');
-  await apiCall({action:id?'update':'save',section:'estudios',record:d});
-  hideLoader(); closeModal('modalEstudio'); renderRegistro();
+  await apiCall({ action: id ? 'update' : 'save', section: 'estudios', record: d });
+  hideLoader();
+  closeModal('modalEstudio');
+  renderRegistro();
   toast('Estudio guardado ✓');
 }
 
 async function eliminar(id){
   if(!confirm('¿Eliminar este registro?')) return;
-  DB.estudios=DB.estudios.filter(r=>String(r.id)!==String(id));
+  DB.estudios = DB.estudios.filter(r => String(r.id) !== String(id));
+  // FIX: guardar local inmediatamente al eliminar
+  guardarLocal();
   showLoader('Eliminando...');
-  await apiCall({action:'delete',section:'estudios',id:id});
-  hideLoader(); renderRegistro(); closeModal('modalEstudio');
-  toast('Registro eliminado','error');
+  await apiCall({ action: 'delete', section: 'estudios', id: id });
+  hideLoader();
+  renderRegistro();
+  closeModal('modalEstudio');
+  toast('Registro eliminado', 'error');
 }
 
 function exportarCSV(){
-  const hoy=dk(cur);
-  const data=DB.estudios.filter(r=>r.fecha===hoy);
-  if(!data.length){toast('Sin datos para exportar','error');return;}
-  const keys=Object.keys(data[0]);
-  const csv=[keys.join(',')].concat(data.map(r=>keys.map(k=>'"'+String(r[k]||'').replace(/"/g,'""')+'"').join(','))).join('\n');
-  const a=document.createElement('a');
-  a.href='data:text/csv;charset=utf-8,\uFEFF'+encodeURIComponent(csv);
-  a.download='imagenologia_'+hoy+'.csv'; a.click(); toast('CSV exportado');
+  const hoy = dk(cur);
+  const data = DB.estudios.filter(r => r.fecha === hoy);
+  if(!data.length){ toast('Sin datos para exportar','error'); return; }
+  const keys = Object.keys(data[0]);
+  const csv = [keys.join(',')].concat(data.map(r => keys.map(k => '"'+String(r[k]||'').replace(/"/g,'""')+'"').join(','))).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,\uFEFF'+encodeURIComponent(csv);
+  a.download = 'imagenologia_'+hoy+'.csv'; a.click(); toast('CSV exportado');
 }
 
-// ── CONCENTRADO MENSUAL ───────────────────────────────────────────────────
+// ── CONCENTRADO MENSUAL ────────────────────────────────────────────────────
 function renderConcentrado(){
-  const mes=parseInt(document.getElementById('con-mes').value);
-  const anio=parseInt(document.getElementById('con-anio').value);
+  const mes = parseInt(document.getElementById('con-mes').value);
+  const anio = parseInt(document.getElementById('con-anio').value);
 
-  const est=DB.estudios.filter(function(r){
-    const fd=r.fecha; if(!fd) return false;
-    const d=new Date(fd+'T12:00');
-    return d.getFullYear()===anio&&d.getMonth()===mes;
+  const est = DB.estudios.filter(function(r){
+    const fd = r.fecha; if(!fd) return false;
+    const d = new Date(fd+'T12:00');
+    return d.getFullYear() === anio && d.getMonth() === mes;
   });
 
-  const diasConAct=[...new Set(est.map(r=>r.fecha).filter(Boolean))].length||1;
-  const total=est.length;
+  const diasConAct = [...new Set(est.map(r => r.fecha).filter(Boolean))].length || 1;
+  const total = est.length;
 
-  // Por tipo (los 8 actuales)
-  const porTipo={};
-  Object.keys(TIPOS_ESTUDIO).forEach(t=>{ porTipo[t]=est.filter(r=>r.tipo===t).length; });
+  const porTipo = {};
+  Object.keys(TIPOS_ESTUDIO).forEach(t => { porTipo[t] = est.filter(r => r.tipo === t).length; });
 
-  // Prioridad
-  const urgentes=est.filter(r=>r.prioridad==='Urgente').length;
-  const programados=est.filter(r=>r.prioridad==='Programado').length;
-  const sinCita=est.filter(r=>r.prioridad==='Sin cita').length;
+  const urgentes = est.filter(r => r.prioridad === 'Urgente').length;
+  const programados = est.filter(r => r.prioridad === 'Programado').length;
+  const sinCita = est.filter(r => r.prioridad === 'Sin cita').length;
 
-  // Tiempo de ejecución (único tiempo disponible: inicio → fin)
-  const tEjecucion=est.map(r=>Number(r.minEjecucion)).filter(v=>!isNaN(v)&&v>0);
-  const pEjecucion=tEjecucion.length?Math.round(tEjecucion.reduce((a,b)=>a+b,0)/tEjecucion.length):null;
-  const maxEjecucion=tEjecucion.length?Math.max(...tEjecucion):null;
-  const minEjecucion=tEjecucion.length?Math.min(...tEjecucion):null;
+  const tEjecucion = est.map(r => Number(r.minEjecucion)).filter(v => !isNaN(v) && v > 0);
+  const pEjecucion = tEjecucion.length ? Math.round(tEjecucion.reduce((a,b) => a+b, 0) / tEjecucion.length) : null;
+  const maxEjecucion = tEjecucion.length ? Math.max(...tEjecucion) : null;
+  const minEjecucion = tEjecucion.length ? Math.min(...tEjecucion) : null;
 
-  // Tiempo por tipo
-  const tiemposPorTipo={};
-  Object.keys(TIPOS_ESTUDIO).forEach(tipo=>{
-    const vals=est.filter(r=>r.tipo===tipo).map(r=>Number(r.minEjecucion)).filter(v=>!isNaN(v)&&v>0);
-    tiemposPorTipo[tipo]=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length):null;
+  const tiemposPorTipo = {};
+  Object.keys(TIPOS_ESTUDIO).forEach(tipo => {
+    const vals = est.filter(r => r.tipo === tipo).map(r => Number(r.minEjecucion)).filter(v => !isNaN(v) && v > 0);
+    tiemposPorTipo[tipo] = vals.length ? Math.round(vals.reduce((a,b) => a+b, 0) / vals.length) : null;
   });
 
-  // Por servicio
-  const porServicio={};
-  est.forEach(r=>{ if(r.servicio) porServicio[r.servicio]=(porServicio[r.servicio]||0)+1; });
-  const topServicios=Object.entries(porServicio).sort((a,b)=>b[1]-a[1]);
+  const porServicio = {};
+  est.forEach(r => { if(r.servicio) porServicio[r.servicio] = (porServicio[r.servicio]||0)+1; });
+  const topServicios = Object.entries(porServicio).sort((a,b) => b[1]-a[1]);
 
-  // Por técnico
-  const porTecnico={};
-  est.forEach(r=>{ if(r.tecnico) porTecnico[r.tecnico]=(porTecnico[r.tecnico]||0)+1; });
-  const topTecnicos=Object.entries(porTecnico).sort((a,b)=>b[1]-a[1]);
+  const porTecnico = {};
+  est.forEach(r => { if(r.tecnico) porTecnico[r.tecnico] = (porTecnico[r.tecnico]||0)+1; });
+  const topTecnicos = Object.entries(porTecnico).sort((a,b) => b[1]-a[1]);
 
-  // Por radiólogo
-  const porRadiologo={};
-  est.forEach(r=>{ if(r.radiologo) porRadiologo[r.radiologo]=(porRadiologo[r.radiologo]||0)+1; });
-  const topRadiologos=Object.entries(porRadiologo).sort((a,b)=>b[1]-a[1]);
+  const porRadiologo = {};
+  est.forEach(r => { if(r.radiologo) porRadiologo[r.radiologo] = (porRadiologo[r.radiologo]||0)+1; });
+  const topRadiologos = Object.entries(porRadiologo).sort((a,b) => b[1]-a[1]);
 
-  // Estudios con medio de contraste — desglose por vía
+  // FIX: comparación de contraste mejorada para detectar correctamente "sin contraste"
   const VIAS = [
-    { key:'intravenoso', label:'Intravenoso',   color:'#1D4ED8', bg:'#EFF6FF', match: c => c.indexOf('intravenoso')!==-1 && c.indexOf('oral')===-1 },
-    { key:'oral',        label:'Oral',          color:'#15803D', bg:'#F0FDF4', match: c => c.indexOf('oral')!==-1 && c.indexOf('intravenoso')===-1 },
-    { key:'oraliv',      label:'Oral + IV',     color:'#6D28D9', bg:'#F5F3FF', match: c => c.indexOf('oral')!==-1 && c.indexOf('intravenoso')!==-1 },
-    { key:'rectal',      label:'Rectal',        color:'#B45309', bg:'#FFFBEB', match: c => c.indexOf('rectal')!==-1 },
-    { key:'articular',   label:'Intraarticular',color:'#0E7490', bg:'#ECFEFF', match: c => c.indexOf('intraarticular')!==-1 },
-    { key:'endoluminal', label:'Endoluminal',   color:'#7C3AED', bg:'#F5F3FF', match: c => c.indexOf('endoluminal')!==-1 },
-    { key:'otro',        label:'Otra vía',      color:'#64748B', bg:'#F8FAFC', match: c => c.indexOf('no especificada')!==-1 },
+    { key:'intravenoso', label:'Intravenoso',    color:'#1D4ED8', bg:'#EFF6FF', match: c => c.indexOf('intravenoso')!==-1 && c.indexOf('oral')===-1 },
+    { key:'oral',        label:'Oral',           color:'#15803D', bg:'#F0FDF4', match: c => c.indexOf('oral')!==-1 && c.indexOf('intravenoso')===-1 },
+    { key:'oraliv',      label:'Oral + IV',      color:'#6D28D9', bg:'#F5F3FF', match: c => c.indexOf('oral')!==-1 && c.indexOf('intravenoso')!==-1 },
+    { key:'rectal',      label:'Rectal',         color:'#B45309', bg:'#FFFBEB', match: c => c.indexOf('rectal')!==-1 },
+    { key:'articular',   label:'Intraarticular', color:'#0E7490', bg:'#ECFEFF', match: c => c.indexOf('intraarticular')!==-1 },
+    { key:'endoluminal', label:'Endoluminal',    color:'#7C3AED', bg:'#F5F3FF', match: c => c.indexOf('endoluminal')!==-1 },
+    { key:'otro',        label:'Otra vía',       color:'#64748B', bg:'#F8FAFC', match: c => c.indexOf('no especificada')!==-1 },
   ];
-  const sinContraste=est.filter(r=>!r.contraste||r.contraste.indexOf('Sin')!==-1||r.contraste==='').length;
-  const conContraste=total-sinContraste;
-  const porVia=VIAS.map(v=>({ ...v, n: est.filter(r=>r.contraste&&r.contraste.indexOf('Sin')===-1&&r.contraste!==''&&v.match(r.contraste.toLowerCase())).length })).filter(v=>v.n>0);
 
-  function ic(color,titulo,formula,valor,desc,barPct){
+  function esSinContraste(c){
+    return !c || c === '' || c === '— Sin medio de contraste —' || c.indexOf('Sin') !== -1;
+  }
+
+  const sinContraste = est.filter(r => esSinContraste(r.contraste)).length;
+  const conContraste = total - sinContraste;
+  const porVia = VIAS.map(v => ({
+    ...v,
+    n: est.filter(r => !esSinContraste(r.contraste) && v.match(r.contraste.toLowerCase())).length
+  })).filter(v => v.n > 0);
+
+  function ic(color, titulo, formula, valor, desc, barPct){
     return '<div class="ind-card">'+
       '<div class="ind-hdr"><div class="ind-dot" style="background:'+color+'"></div><span class="ind-ttl">'+titulo+'</span></div>'+
       (formula?'<div class="ind-formula">'+formula+'</div>':'')+
@@ -818,11 +781,11 @@ function renderConcentrado(){
       '</div>';
   }
 
-  function barraPersonal(lista,color){
+  function barraPersonal(lista, color){
     if(!lista.length) return '<div style="color:var(--gris4);font-size:12px;margin-top:8px">Sin datos</div>';
-    const max=lista[0][1];
+    const max = lista[0][1];
     return '<div style="margin-top:8px;display:flex;flex-direction:column;gap:7px">'+
-      lista.map(([nombre,n])=>
+      lista.map(([nombre,n]) =>
         '<div style="display:flex;align-items:center;gap:8px">'+
         '<div style="font-size:11px;font-weight:500;min-width:160px;color:var(--gris6);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="'+nombre+'">'+nombre+'</div>'+
         '<div style="flex:1;height:6px;background:var(--gris2);border-radius:99px;overflow:hidden">'+
@@ -834,12 +797,9 @@ function renderConcentrado(){
   }
 
   document.getElementById('concentrado-body').innerHTML=
-
-    // Encabezado
     '<div style="font-size:16px;font-weight:600;color:var(--gris7);margin-bottom:14px">'+
     MESES[mes]+' '+anio+'&nbsp;&nbsp;<span style="font-size:12px;font-weight:400;color:var(--gris4)">'+diasConAct+' día'+(diasConAct!==1?'s':'')+' con actividad</span></div>'+
 
-    // ── KPIs generales ──────────────────────────────────────────
     '<div class="stats-grid" style="grid-template-columns:repeat(5,1fr);margin-bottom:14px">'+
     '<div class="stat-card"><div class="stat-lbl">Total estudios</div><div class="stat-val" style="color:#1C2331">'+total+'</div><div class="stat-sub">Promedio diario: '+Math.round(total/diasConAct*10)/10+'</div></div>'+
     '<div class="stat-card"><div class="stat-lbl">🔴 Urgentes</div><div class="stat-val" style="color:var(--rojo)">'+urgentes+'</div><div class="stat-sub">'+(total?Math.round(urgentes/total*100):0)+'% del total</div></div>'+
@@ -848,15 +808,14 @@ function renderConcentrado(){
     '<div class="stat-card"><div class="stat-lbl">💉 Con contraste</div><div class="stat-val" style="color:var(--amarillo)">'+conContraste+'</div><div class="stat-sub">'+(total?Math.round(conContraste/total*100):0)+'% del total</div></div>'+
     '</div>'+
 
-    // ── Desglose medio de contraste ─────────────────────────────
     '<div class="card" style="margin-bottom:14px">'+
     '<div class="card-header"><span class="card-title">💉 Medio de contraste — desglose por vía de administración</span>'+
     '<span style="font-size:12px;color:var(--gris4)">'+conContraste+' de '+total+' estudios ('+(total?Math.round(conContraste/total*100):0)+'%)</span></div>'+
     '<div style="padding:14px 16px">'+
-    (porVia.length?
+    (porVia.length ?
       '<div style="display:flex;gap:10px;flex-wrap:wrap">'+
-      porVia.map(v=>{
-        const pct=conContraste?Math.round(v.n/conContraste*100):0;
+      porVia.map(v => {
+        const pct = conContraste ? Math.round(v.n/conContraste*100) : 0;
         return '<div style="flex:1;min-width:110px;background:'+v.bg+';border:1.5px solid '+v.color+'33;border-radius:10px;padding:10px 12px;text-align:center">'+
           '<div style="font-size:10px;font-weight:700;color:'+v.color+';text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">'+v.label+'</div>'+
           '<div style="font-size:28px;font-weight:700;color:'+v.color+';line-height:1">'+v.n+'</div>'+
@@ -878,15 +837,14 @@ function renderConcentrado(){
     )+
     '</div></div>'+
 
-    // ── Estudios por modalidad ───────────────────────────────────
     '<div class="card" style="margin-bottom:14px">'+
     '<div class="card-header"><span class="card-title">🩻 Estudios por modalidad</span></div>'+
     '<div style="padding:16px">'+
     '<div style="display:grid;grid-template-columns:repeat(8,1fr);gap:10px">'+
-    Object.entries(TIPOS_ESTUDIO).map(([nombre,t])=>{
-      const n=porTipo[nombre]||0;
-      const pct=total?Math.round(n/total*100):0;
-      const tProm=tiemposPorTipo[nombre];
+    Object.entries(TIPOS_ESTUDIO).map(([nombre,t]) => {
+      const n = porTipo[nombre] || 0;
+      const pct = total ? Math.round(n/total*100) : 0;
+      const tProm = tiemposPorTipo[nombre];
       return '<div style="text-align:center;padding:10px 4px;border-radius:8px;background:var(--gris0);border:1px solid var(--gris2)">'+
         '<div style="font-size:20px;margin-bottom:4px">'+t.icon+'</div>'+
         '<div style="font-size:9px;color:'+t.color+';font-weight:700;margin-bottom:6px;line-height:1.2">'+nombre+'</div>'+
@@ -899,7 +857,6 @@ function renderConcentrado(){
     }).join('')+
     '</div></div></div>'+
 
-    // ── Tiempo de ejecución ──────────────────────────────────────
     '<div class="ind-grid-3" style="margin-bottom:12px">'+
     '<div class="group-title">Duración de estudios (inicio → fin)</div>'+
     ic('#1C2331','Duración promedio','inicio → fin del estudio',fmtMin(pEjecucion),
@@ -913,7 +870,6 @@ function renderConcentrado(){
       maxEjecucion!==null?Math.min(maxEjecucion/60*100,100):0)+
     '</div>'+
 
-    // ── Servicios solicitantes ───────────────────────────────────
     '<div class="ind-grid-2" style="margin-bottom:12px">'+
     '<div class="group-title">Demanda por servicio y productividad del personal</div>'+
     '<div class="ind-card">'+
@@ -926,15 +882,14 @@ function renderConcentrado(){
     '</div>'+
     '</div>'+
 
-    // ── Por radiólogo ────────────────────────────────────────────
     '<div class="ind-grid-2" style="margin-bottom:12px">'+
     '<div class="group-title">Productividad por médico radiólogo</div>'+
     '<div class="ind-card" style="grid-column:1/-1">'+
     '<div class="ind-hdr"><div class="ind-dot" style="background:var(--morado)"></div><span class="ind-ttl">Estudios reportados por médico radiólogo</span></div>'+
-    (topRadiologos.length?
+    (topRadiologos.length ?
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px">'+
-      topRadiologos.map(([nombre,n])=>{
-        const pct=total?Math.round(n/total*100):0;
+      topRadiologos.map(([nombre,n]) => {
+        const pct = total ? Math.round(n/total*100) : 0;
         return '<div style="background:var(--morado3);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px">'+
           '<div style="flex:1;min-width:0">'+
           '<div style="font-size:11px;font-weight:600;color:var(--morado);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="'+nombre+'">'+nombre+'</div>'+
@@ -943,13 +898,13 @@ function renderConcentrado(){
           '<div style="font-size:22px;font-weight:700;color:var(--morado);flex-shrink:0">'+n+'</div>'+
           '</div>';
       }).join('')+
-      '</div>':
+      '</div>' :
       '<div style="color:var(--gris4);font-size:12px;margin-top:8px">Sin datos de radiólogo</div>')+
     '</div>'+
     '</div>';
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────────
+// ── INIT ───────────────────────────────────────────────────────────────────
 actualizarFechas();
 cargarDatos();
 </script>
